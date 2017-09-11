@@ -6,6 +6,7 @@
 //  Copyright © 2017 horimislime. All rights reserved.
 //
 
+import AppKit
 import SafariServices
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
@@ -30,5 +31,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }
-
+    
+    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
+        
+        page.getPropertiesWithCompletionHandler { properties in
+            guard let title = properties?.title, let URLString = properties?.url?.absoluteString else { return }
+            NSPasteboard.general().clearContents()
+            NSPasteboard.general().setString("[\(title)](\(URLString))", forType: NSPasteboardTypeString)
+        }
+    }
 }
