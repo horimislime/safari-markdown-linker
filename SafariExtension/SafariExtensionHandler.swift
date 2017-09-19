@@ -35,9 +35,19 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
         
         page.getPropertiesWithCompletionHandler { properties in
-            guard let title = properties?.title, let URLString = properties?.url?.absoluteString else { return }
+            
+            guard let title = properties?.title, let url = properties?.url else { return }
+            
+            let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, url.pathExtension as CFString, nil)?
+                .takeRetainedValue() ?? "" as CFString
+            
             NSPasteboard.general().clearContents()
-            NSPasteboard.general().setString("[\(title)](\(URLString))", forType: NSPasteboardTypeString)
+            if UTTypeConformsTo(uti, kUTTypeImage as CFString) {
+                NSPasteboard.general().setString("![\(title)](\(url.absoluteString))", forType: NSPasteboardTypeString)
+                
+            } else {
+                NSPasteboard.general().setString("[\(title)](\(url.absoluteString))", forType: NSPasteboardTypeString)
+            }
         }
     }
 }
