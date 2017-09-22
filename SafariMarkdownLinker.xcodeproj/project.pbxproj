@@ -16,7 +16,6 @@
 		13955DCC1F65715A007A11C0 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DCB1F65715A007A11C0 /* SafariExtensionViewController.swift */; };
 		13955DCF1F65715A007A11C0 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13955DCD1F65715A007A11C0 /* SafariExtensionViewController.xib */; };
 		13955DD21F65715A007A11C0 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 13955DD11F65715A007A11C0 /* script.js */; };
-		13955DD41F65715A007A11C0 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 13955DD31F65715A007A11C0 /* ToolbarItemIcon.pdf */; };
 		13955DD71F65715A007A11C0 /* SafariExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13955DC21F65715A007A11C0 /* SafariExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		13955DCE1F65715A007A11C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		13955DD01F65715A007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13955DD11F65715A007A11C0 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
-		13955DD31F65715A007A11C0 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +126,6 @@
 				13955DCD1F65715A007A11C0 /* SafariExtensionViewController.xib */,
 				13955DD01F65715A007A11C0 /* Info.plist */,
 				13955DD11F65715A007A11C0 /* script.js */,
-				13955DD31F65715A007A11C0 /* ToolbarItemIcon.pdf */,
 				13955DC71F65715A007A11C0 /* Supporting Files */,
 			);
 			path = SafariExtension;
@@ -236,7 +233,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13955DD41F65715A007A11C0 /* ToolbarItemIcon.pdf in Resources */,
 				13955DCF1F65715A007A11C0 /* SafariExtensionViewController.xib in Resources */,
 				13955DD21F65715A007A11C0 /* script.js in Resources */,
 			);
@@ -462,6 +458,7 @@
 				13955DBD1F65710D007A11C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		13955DD81F65715A007A11C0 /* Build configuration list for PBXNativeTarget "SafariExtension" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +467,7 @@
 				13955DDA1F65715A007A11C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
