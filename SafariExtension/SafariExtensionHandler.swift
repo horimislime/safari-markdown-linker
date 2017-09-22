@@ -9,13 +9,12 @@
 import AppKit
 import SafariServices
 
+private var lastLinkDetail: [String: Any]?
+
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
-        // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
-        page.getPropertiesWithCompletionHandler { properties in
-            NSLog("The extension received a message (\(messageName)) from a script injected into (\(String(describing: properties?.url))) with userInfo (\(userInfo ?? [:]))")
-        }
+        lastLinkDetail = userInfo
     }
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
@@ -34,6 +33,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
         
+        NSPasteboard.general().clearContents()
+        
+        if let title = lastLinkDetail?["title"] as? String, let urlString = lastLinkDetail?["url"] as? String {
+            NSPasteboard.general().setString("![\(title)](\(urlString))", forType: NSPasteboardTypeString)
+            return
+        }
+        
         page.getPropertiesWithCompletionHandler { properties in
             
             guard let title = properties?.title, let url = properties?.url else { return }
@@ -41,7 +47,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, url.pathExtension as CFString, nil)?
                 .takeRetainedValue() ?? "" as CFString
             
-            NSPasteboard.general().clearContents()
             if UTTypeConformsTo(uti, kUTTypeImage as CFString) {
                 NSPasteboard.general().setString("![\(title)](\(url.absoluteString))", forType: NSPasteboardTypeString)
                 
