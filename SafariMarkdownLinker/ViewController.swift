@@ -10,18 +10,14 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var extensionStatusIcon: NSTextField!
+    @IBOutlet weak var extensionStatusText: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    
+    @IBAction func openExtensionButtonClicked(_ sender: NSButton) {
     }
-
-
 }
 
