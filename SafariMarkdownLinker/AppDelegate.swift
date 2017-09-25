@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        if let window = NSApplication.shared().keyWindow {
+        if let window = NSApplication.shared.keyWindow {
             window.titlebarAppearsTransparent = true
             window.titleVisibility = .hidden
             window.title = Bundle.main.infoDictionary!["CFBundleName"] as! String

@@ -32,16 +32,16 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     private func copyAsMarkdown(withTitle title: String, url: URL) {
         
-        NSPasteboard.general().clearContents()
+        NSPasteboard.general.clearContents()
         
         let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, url.pathExtension as CFString, nil)?
             .takeRetainedValue() ?? "" as CFString
         
         if UTTypeConformsTo(uti, kUTTypeImage as CFString) {
-            NSPasteboard.general().setString("![\(title)](\(url.absoluteString))", forType: NSPasteboardTypeString)
+            NSPasteboard.general.setString("![\(title)](\(url.absoluteString))", forType: NSPasteboard.PasteboardType.string)
             
         } else {
-            NSPasteboard.general().setString("[\(title)](\(url.absoluteString))", forType: NSPasteboardTypeString)
+            NSPasteboard.general.setString("[\(title)](\(url.absoluteString))", forType: NSPasteboard.PasteboardType.string)
         }
     }
 }

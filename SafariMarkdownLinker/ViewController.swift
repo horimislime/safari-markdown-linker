@@ -71,18 +71,18 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSWorkspace.shared().notificationCenter.addObserver(self,
+        NSWorkspace.shared.notificationCenter.addObserver(self,
                                                             selector: #selector(handleNotification(_:)),
-                                                            name: NSNotification.Name.NSWorkspaceDidActivateApplication,
+                                                            name: NSWorkspace.didActivateApplicationNotification,
                                                             object: nil)
     }
     
     deinit {
-        NSWorkspace.shared().notificationCenter.removeObserver(self)
+        NSWorkspace.shared.notificationCenter.removeObserver(self)
     }
     
-    func handleNotification(_ notification: Notification) {
-        if NSRunningApplication.current().isActive {
+    @objc func handleNotification(_ notification: Notification) {
+        if NSRunningApplication.current.isActive {
             getExtensionState()
         }
     }
