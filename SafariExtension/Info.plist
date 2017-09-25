@@ -19,20 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>18</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSExtension</key>
 	<dict>
-		<key>SFSafariContextMenu</key>
-		<array>
-			<dict>
-				<key>Command</key>
-				<string>Add</string>
-				<key>Text</key>
-				<string>Copy Markdown Link</string>
-			</dict>
-		</array>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.Safari.extension</string>
 		<key>NSExtensionPrincipalClass</key>
@@ -44,8 +35,21 @@
 				<string>script.js</string>
 			</dict>
 		</array>
+		<key>SFSafariContextMenu</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>Add</string>
+				<key>Text</key>
+				<string>Copy Markdown Link</string>
+			</dict>
+		</array>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>*</string>
+			</array>
 			<key>Level</key>
 			<string>All</string>
 		</dict>

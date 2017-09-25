@@ -58,6 +58,7 @@
 		13955DCE1F65715A007A11C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		13955DD01F65715A007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13955DD11F65715A007A11C0 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		13FF6AB11F78C70B00CA4CAA /* SafariMarkdownLinker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SafariMarkdownLinker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		13955DAE1F65710D007A11C0 /* SafariMarkdownLinker */ = {
 			isa = PBXGroup;
 			children = (
+				13FF6AB11F78C70B00CA4CAA /* SafariMarkdownLinker.entitlements */,
 				13955DAF1F65710D007A11C0 /* AppDelegate.swift */,
 				13955DB11F65710D007A11C0 /* ViewController.swift */,
 				13955DB31F65710D007A11C0 /* Assets.xcassets */,
@@ -192,6 +194,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3XEXW5K93E;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					13955DC11F65715A007A11C0 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -386,6 +393,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SafariMarkdownLinker/SafariMarkdownLinker.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
@@ -394,6 +402,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -403,6 +412,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SafariMarkdownLinker/SafariMarkdownLinker.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
@@ -411,6 +421,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
