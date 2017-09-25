@@ -10,7 +10,7 @@ This extension has the following features:
 TBD
 
 # Screenshots
-Copying currently opend sites'URL
+Copying currently opened site's URL
 
 ![](/assets/sc-1.gif)
 
