@@ -44,10 +44,7 @@ class ViewController: NSViewController {
         }
     }
     
-    override func viewWillAppear() {
-        
-        super.viewWillAppear()
-        
+    private func getExtensionState() {
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: "\(Bundle.main.bundleIdentifier!).SafariExtension") { [weak self] state, error in
             
             guard let strongSelf = self else { return }
@@ -62,6 +59,29 @@ class ViewController: NSViewController {
             } else {
                 strongSelf.updateView(withStatus: .disabled)
             }
+        }
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        getExtensionState()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NSWorkspace.shared().notificationCenter.addObserver(self,
+                                                            selector: #selector(handleNotification(_:)),
+                                                            name: NSNotification.Name.NSWorkspaceDidActivateApplication,
+                                                            object: nil)
+    }
+    
+    deinit {
+        NSWorkspace.shared().notificationCenter.removeObserver(self)
+    }
+    
+    func handleNotification(_ notification: Notification) {
+        if NSRunningApplication.current().isActive {
+            getExtensionState()
         }
     }
     
