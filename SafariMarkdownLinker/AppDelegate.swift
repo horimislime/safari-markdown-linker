@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let window = NSApplication.shared().keyWindow {
             window.titlebarAppearsTransparent = true
             window.titleVisibility = .hidden
+            window.title = Bundle.main.infoDictionary!["CFBundleName"] as! String
         }
     }
 }

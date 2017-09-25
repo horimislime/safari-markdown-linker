@@ -9,6 +9,8 @@
 import Cocoa
 import SafariServices
 
+private let extensionIdentifier = "\(Bundle.main.bundleIdentifier!).SafariExtension"
+
 enum ExtensionStatus {
     
     case enabled
@@ -45,7 +47,7 @@ class ViewController: NSViewController {
     }
     
     private func getExtensionState() {
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: "\(Bundle.main.bundleIdentifier!).SafariExtension") { [weak self] state, error in
+        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionIdentifier) { [weak self] state, error in
             
             guard let strongSelf = self else { return }
             
@@ -86,6 +88,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func openExtensionButtonClicked(_ sender: NSButton) {
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionIdentifier) { _ in }
     }
 }
 
