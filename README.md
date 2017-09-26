@@ -7,7 +7,7 @@ This extension has the following features:
 - Copy right-clicked link URL as markdown format
 
 # Installation
-TBD
+You can download this extension from [Mac App Store](https://itunes.apple.com/us/app/markdown-linker-for-safari/id1289119450?ls=1&mt=12).
 
 # Screenshots
 Copying currently opened site's URL
