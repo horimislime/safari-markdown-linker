@@ -39,6 +39,19 @@ class ViewController: NSViewController {
     @IBOutlet weak var extensionStatusIcon: NSTextField!
     @IBOutlet weak var extensionStatusText: NSTextField!
     
+    @IBOutlet weak var urlFormatListTableView: NSTableView!
+    
+    private let nameColumn: NSTableColumn = {
+        let nameColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "name_column"))
+        nameColumn.title = "Name"
+        return nameColumn
+    }()
+    private let formatColumn: NSTableColumn = {
+        let formatColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "format_column"))
+        formatColumn.title = "URL Format"
+        return formatColumn
+    }()
+    
     private func updateView(withStatus status: ExtensionStatus) {
         DispatchQueue.main.async {
             self.extensionStatusIcon.stringValue = status.icon
@@ -71,6 +84,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        urlFormatListTableView.delegate = self
+        urlFormatListTableView.dataSource = self
         NSWorkspace.shared.notificationCenter.addObserver(self,
                                                             selector: #selector(handleNotification(_:)),
                                                             name: NSWorkspace.didActivateApplicationNotification,
@@ -92,3 +107,16 @@ class ViewController: NSViewController {
     }
 }
 
+extension ViewController: NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let cell = NSTableCellView(frame: .init(x: 0, y: 0, width: 100, height: 50))
+        cell.textField?.stringValue = "hogehoge"
+        return cell
+    }
+}
+
+extension ViewController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        2
+    }
+}
