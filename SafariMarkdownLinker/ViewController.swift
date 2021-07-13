@@ -33,6 +33,12 @@ enum ExtensionStatus {
     }
 }
 
+struct URLFormat {
+    let name: String
+    let pattern: String
+    let isEnabled: Bool
+}
+
 
 class ViewController: NSViewController {
 
@@ -41,16 +47,14 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var urlFormatListTableView: NSTableView!
     
-    private let nameColumn: NSTableColumn = {
-        let nameColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "name_column"))
-        nameColumn.title = "Name"
-        return nameColumn
-    }()
-    private let formatColumn: NSTableColumn = {
-        let formatColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "format_column"))
-        formatColumn.title = "URL Format"
-        return formatColumn
-    }()
+    @IBOutlet private weak var nameColumn: NSTableColumn!
+    @IBOutlet private weak var formatColumn: NSTableColumn!
+    @IBOutlet private weak var enabledColumn: NSTableColumn!
+    
+    private let urlFormats = [
+        URLFormat(name: "Markdown", pattern: "[%TITLE](%URL)", isEnabled: true),
+        URLFormat(name: "Scrapbox", pattern: "[%TITLE](%URL)", isEnabled: true)
+    ]
     
     private func updateView(withStatus status: ExtensionStatus) {
         DispatchQueue.main.async {
@@ -109,14 +113,25 @@ class ViewController: NSViewController {
 
 extension ViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cell = NSTableCellView(frame: .init(x: 0, y: 0, width: 100, height: 50))
-        cell.textField?.stringValue = "hogehoge"
-        return cell
+        switch (tableColumn) {
+        case nameColumn:
+            return NSTextField(string: urlFormats[row].name)
+        case formatColumn:
+            return NSTextField(string: urlFormats[row].pattern)
+        case enabledColumn:
+            return NSTextField(string: "\(urlFormats[row].isEnabled)")
+        default:
+            preconditionFailure("Table column is illegally configured.")
+        }
     }
 }
 
 extension ViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        2
+        urlFormats.count
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        24
     }
 }

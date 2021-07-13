@@ -870,8 +870,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="enabledColumn" destination="wc8-7s-Tj9" id="RW2-TJ-hQW"/>
                         <outlet property="extensionStatusIcon" destination="Vam-d3-Cad" id="Ewb-qi-VIn"/>
                         <outlet property="extensionStatusText" destination="P7f-j6-Vlh" id="PjO-2d-lUh"/>
+                        <outlet property="formatColumn" destination="5NO-r0-dJv" id="dge-Pp-4rW"/>
+                        <outlet property="nameColumn" destination="Me6-IR-7pU" id="dno-3y-FiH"/>
                         <outlet property="urlFormatListTableView" destination="lcU-7J-vgv" id="3fl-XO-Yey"/>
                     </connections>
                 </viewController>
