@@ -33,13 +33,6 @@ enum ExtensionStatus {
     }
 }
 
-struct URLFormat {
-    let name: String
-    let pattern: String
-    let isEnabled: Bool
-}
-
-
 class ViewController: NSViewController {
 
     @IBOutlet weak var extensionStatusIcon: NSTextField!
@@ -52,9 +45,11 @@ class ViewController: NSViewController {
     @IBOutlet private weak var enabledColumn: NSTableColumn!
     
     private let urlFormats = [
-        URLFormat(name: "Markdown", pattern: "[%TITLE](%URL)", isEnabled: true),
-        URLFormat(name: "Scrapbox", pattern: "[%TITLE](%URL)", isEnabled: true)
+        URLFormat(name: "Markdown", pattern: "[%TITLE](%URL)", isEnabled: true, commandName: "Command1"),
+        URLFormat(name: "Scrapbox", pattern: "[%TITLE %URL]", isEnabled: true, commandName: "Command2")
     ]
+    
+    private var setting: Setting!
     
     private func updateView(withStatus status: ExtensionStatus) {
         DispatchQueue.main.async {
@@ -94,6 +89,13 @@ class ViewController: NSViewController {
                                                             selector: #selector(handleNotification(_:)),
                                                             name: NSWorkspace.didActivateApplicationNotification,
                                                             object: nil)
+        
+        if let setting = Setting.load() {
+            self.setting = setting
+        } else {
+            self.setting = Setting.default
+            self.setting.save()
+        }
     }
     
     deinit {
