@@ -44,11 +44,6 @@ class ViewController: NSViewController {
     @IBOutlet private weak var formatColumn: NSTableColumn!
     @IBOutlet private weak var enabledColumn: NSTableColumn!
     
-    private let urlFormats = [
-        URLFormat(name: "Markdown", pattern: "[%TITLE](%URL)", isEnabled: true, commandName: "Command1"),
-        URLFormat(name: "Scrapbox", pattern: "[%TITLE %URL]", isEnabled: true, commandName: "Command2")
-    ]
-    
     private var setting: Setting!
     
     private func updateView(withStatus status: ExtensionStatus) {
@@ -96,6 +91,7 @@ class ViewController: NSViewController {
             self.setting = Setting.default
             self.setting.save()
         }
+        urlFormatListTableView.reloadData()
     }
     
     deinit {
@@ -117,11 +113,11 @@ extension ViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         switch (tableColumn) {
         case nameColumn:
-            return NSTextField(string: urlFormats[row].name)
+            return NSTextField(string: setting.urlFormats[row].name)
         case formatColumn:
-            return NSTextField(string: urlFormats[row].pattern)
+            return NSTextField(string: setting.urlFormats[row].pattern)
         case enabledColumn:
-            return NSTextField(string: "\(urlFormats[row].isEnabled)")
+            return NSTextField(string: "\(setting.urlFormats[row].isEnabled)")
         default:
             preconditionFailure("Table column is illegally configured.")
         }
@@ -130,7 +126,8 @@ extension ViewController: NSTableViewDelegate {
 
 extension ViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        urlFormats.count
+        guard let setting = setting else { return 0 }
+        return setting.urlFormats.count
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
