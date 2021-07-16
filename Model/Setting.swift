@@ -9,7 +9,7 @@
 import Foundation
 
 struct Setting: Codable {
-    let urlFormats: [URLFormat]
+    var urlFormats: [URLFormat]
     
     static let `default` = Setting(urlFormats: [
         URLFormat(name: "Markdown", pattern: "[%TITLE](%URL)", isEnabled: true, commandName: "Command1"),

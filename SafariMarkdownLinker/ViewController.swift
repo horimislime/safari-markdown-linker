@@ -11,6 +11,69 @@ import SafariServices
 
 private let extensionIdentifier = "\(Bundle.main.bundleIdentifier!).SafariExtension"
 
+final class TextFieldCellView: NSView {
+    let textField = NSTextField(frame: .zero)
+    
+    convenience init(string: String) {
+        self.init(frame: .zero)
+        textField.stringValue = string
+    }
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        addSubview(textField)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func resizeSubviews(withOldSize oldSize: NSSize) {
+        super.resizeSubviews(withOldSize: oldSize)
+        textField.frame = CGRect(x: 4, y: 4, width: frame.width - 4 * 2, height: frame.height - 4 * 2)
+    }
+}
+
+protocol CheckBoxCellViewDelegate: AnyObject {
+    func checkBoxCellView(_ view: CheckBoxCellView, didUpdateCheckStatus status: Bool)
+}
+
+final class CheckBoxCellView: NSView {
+    
+    weak var delegate: CheckBoxCellViewDelegate?
+    
+    let checkBox = NSButton(checkboxWithTitle: "", target: self, action: #selector(checkBoxDidChanged(_:)))
+    
+    convenience init(checked: Bool) {
+        self.init(frame: .zero)
+        checkBox.state = checked ? .on : .off
+    }
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
+        addSubview(checkBox)
+    }
+    
+    override func resizeSubviews(withOldSize oldSize: NSSize) {
+        super.resizeSubviews(withOldSize: oldSize)
+        let boxSize: CGFloat = 24
+        checkBox.frame = CGRect(x: (frame.width - boxSize) / 2, y: (frame.height - boxSize) / 2, width: boxSize, height: boxSize)
+    }
+    
+    @objc func checkBoxDidChanged(_ sender: NSButton) {
+        delegate?.checkBoxCellView(self, didUpdateCheckStatus: sender.state == .on)
+    }
+}
+
 enum ExtensionStatus {
     
     case enabled
@@ -80,6 +143,9 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         urlFormatListTableView.delegate = self
         urlFormatListTableView.dataSource = self
+        urlFormatListTableView.usesAutomaticRowHeights = true
+        urlFormatListTableView.rowHeight = 32
+        
         NSWorkspace.shared.notificationCenter.addObserver(self,
                                                             selector: #selector(handleNotification(_:)),
                                                             name: NSWorkspace.didActivateApplicationNotification,
@@ -113,15 +179,22 @@ extension ViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         switch (tableColumn) {
         case nameColumn:
-            return NSTextField(string: setting.urlFormats[row].name)
+            let field = TextFieldCellView(string: setting.urlFormats[row].name)
+            field.textField.delegate = self
+            return field
         case formatColumn:
-            return NSTextField(string: setting.urlFormats[row].pattern)
+            let field = TextFieldCellView(string: setting.urlFormats[row].pattern)
+            field.textField.delegate = self
+            return field
         case enabledColumn:
-            return NSTextField(string: "\(setting.urlFormats[row].isEnabled)")
+            let cell = CheckBoxCellView(checked: setting.urlFormats[row].isEnabled)
+            cell.delegate = self
+            return cell
         default:
             preconditionFailure("Table column is illegally configured.")
         }
     }
+    
 }
 
 extension ViewController: NSTableViewDataSource {
@@ -129,8 +202,46 @@ extension ViewController: NSTableViewDataSource {
         guard let setting = setting else { return 0 }
         return setting.urlFormats.count
     }
-    
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        24
+}
+
+extension ViewController: NSTextFieldDelegate {
+    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+        let rowNumber = urlFormatListTableView.row(for: control)
+        let columnNumber = urlFormatListTableView.column(for: control)
+        let editedFormat = setting.urlFormats[rowNumber]
+        
+        switch columnNumber {
+        case 0:
+            setting.urlFormats[rowNumber] = URLFormat(
+                name: fieldEditor.string,
+                pattern: editedFormat.pattern,
+                isEnabled: editedFormat.isEnabled,
+                commandName: editedFormat.commandName)
+        case 1:
+            setting.urlFormats[rowNumber] = URLFormat(
+                name: editedFormat.name,
+                pattern: fieldEditor.string,
+                isEnabled: editedFormat.isEnabled,
+                commandName: editedFormat.commandName)
+        default:
+            preconditionFailure()
+        }
+
+        setting.save()
+        return true
+    }
+}
+
+extension ViewController: CheckBoxCellViewDelegate {
+    func checkBoxCellView(_ view: CheckBoxCellView, didUpdateCheckStatus status: Bool) {
+        let rowNumber = urlFormatListTableView.row(for: view)
+        let editedFormat = setting.urlFormats[rowNumber]
+        setting.urlFormats[rowNumber] = URLFormat(
+            name: editedFormat.name,
+            pattern: editedFormat.pattern,
+            isEnabled: status,
+            commandName: editedFormat.commandName)
+        setting.save()
+        print("")
     }
 }
