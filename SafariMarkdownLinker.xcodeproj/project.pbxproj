@@ -17,6 +17,8 @@
 		13955DCF1F65715A007A11C0 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13955DCD1F65715A007A11C0 /* SafariExtensionViewController.xib */; };
 		13955DD21F65715A007A11C0 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 13955DD11F65715A007A11C0 /* script.js */; };
 		13955DD71F65715A007A11C0 /* SafariExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13955DC21F65715A007A11C0 /* SafariExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		13AAEDBB269E6BFB0074658E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAEDBA269E6BFB0074658E /* Setting.swift */; };
+		13AAEDBC269E6BFD0074658E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAEDBA269E6BFB0074658E /* Setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		13955DCE1F65715A007A11C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		13955DD01F65715A007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13955DD11F65715A007A11C0 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		13AAEDBA269E6BFB0074658E /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		13FF6AB11F78C70B00CA4CAA /* SafariMarkdownLinker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SafariMarkdownLinker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +86,7 @@
 		13955DA31F65710D007A11C0 = {
 			isa = PBXGroup;
 			children = (
+				13AAEDB9269E6BD20074658E /* Model */,
 				13955DAE1F65710D007A11C0 /* SafariMarkdownLinker */,
 				13955DC61F65715A007A11C0 /* SafariExtension */,
 				13955DC31F65715A007A11C0 /* Frameworks */,
@@ -139,6 +143,14 @@
 				13955DC81F65715A007A11C0 /* SafariExtension.entitlements */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13AAEDB9269E6BD20074658E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13AAEDBA269E6BFB0074658E /* Setting.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +268,7 @@
 			files = (
 				13955DB21F65710D007A11C0 /* ViewController.swift in Sources */,
 				13955DB01F65710D007A11C0 /* AppDelegate.swift in Sources */,
+				13AAEDBB269E6BFB0074658E /* Setting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +278,7 @@
 			files = (
 				13955DCC1F65715A007A11C0 /* SafariExtensionViewController.swift in Sources */,
 				13955DCA1F65715A007A11C0 /* SafariExtensionHandler.swift in Sources */,
+				13AAEDBC269E6BFD0074658E /* Setting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -404,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -424,7 +438,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SafariMarkdownLinker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -445,7 +459,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SafariMarkdownLinker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -464,7 +478,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SafariExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker.SafariExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -483,7 +497,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SafariExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker.SafariExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

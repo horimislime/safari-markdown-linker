@@ -39,9 +39,21 @@
 		<array>
 			<dict>
 				<key>Command</key>
-				<string>Add</string>
+				<string>Command1</string>
 				<key>Text</key>
 				<string>Copy Markdown Link</string>
+			</dict>
+			<dict>
+				<key>Command</key>
+				<string>Command2</string>
+				<key>Text</key>
+				<string>Text</string>
+			</dict>
+			<dict>
+				<key>Command</key>
+				<string>Command3</string>
+				<key>Text</key>
+				<string>Text</string>
 			</dict>
 		</array>
 		<key>SFSafariWebsiteAccess</key>

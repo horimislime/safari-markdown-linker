@@ -8,6 +8,7 @@
 
 import AppKit
 import SafariServices
+import os.log
 
 private var lastLinkDetail: [String: Any]?
 
@@ -17,31 +18,39 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         lastLinkDetail = userInfo
     }
     
-    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
-        
-        if let title = lastLinkDetail?["title"] as? String, let urlString = lastLinkDetail?["url"] as? String, let url = URL(string: urlString) {
-            copyAsMarkdown(withTitle: title, url: url)
-            return
-        }
-        
-        page.getPropertiesWithCompletionHandler { properties in
-            guard let title = properties?.title, let url = properties?.url else { return }
-            self.copyAsMarkdown(withTitle: title, url: url)
+    override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
+        if let format = getAssociatedFormat(withCommand: command) {
+            validationHandler(false, format.name)
+        } else {
+            validationHandler(true, nil)
         }
     }
     
-    private func copyAsMarkdown(withTitle title: String, url: URL) {
+    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
         
-        NSPasteboard.general.clearContents()
+        guard let format = getAssociatedFormat(withCommand: command) else { return }
         
-        let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, url.pathExtension as CFString, nil)?
-            .takeRetainedValue() ?? "" as CFString
+//        if let title = lastLinkDetail?["title"] as? String, let urlString = lastLinkDetail?["url"] as? String, let url = URL(string: urlString) {
+//            copyWithFormat(format, title: title, url: url)
+//            return
+//        }
         
-        if UTTypeConformsTo(uti, kUTTypeImage as CFString) {
-            NSPasteboard.general.setString("![\(title)](\(url.absoluteString))", forType: NSPasteboard.PasteboardType.string)
-            
-        } else {
-            NSPasteboard.general.setString("[\(title)](\(url.absoluteString))", forType: NSPasteboard.PasteboardType.string)
+        page.getPropertiesWithCompletionHandler { properties in
+            guard let title = properties?.title, let url = properties?.url else { return }
+            self.copyWithFormat(format, title: title, url: url)
         }
+    }
+    
+    private func copyWithFormat(_ format: URLFormat, title: String, url: URL) {
+        NSPasteboard.general.clearContents()
+        let formattedString = format.pattern
+            .replacingOccurrences(of: "%URL", with: url.absoluteString)
+            .replacingOccurrences(of: "%TITLE", with: title)
+        NSPasteboard.general.setString(formattedString, forType: NSPasteboard.PasteboardType.string)
+    }
+    
+    private func getAssociatedFormat(withCommand command: String) -> URLFormat? {
+        let setting = Setting.load() ?? Setting.default
+        return setting.urlFormats.first { f in f.commandName == command }
     }
 }
