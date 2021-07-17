@@ -145,19 +145,18 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         urlFormatListTableView.delegate = self
         urlFormatListTableView.dataSource = self
-        urlFormatListTableView.usesAutomaticRowHeights = true
         urlFormatListTableView.rowHeight = 32
         
         NSWorkspace.shared.notificationCenter.addObserver(self,
-                                                            selector: #selector(handleNotification(_:)),
-                                                            name: NSWorkspace.didActivateApplicationNotification,
-                                                            object: nil)
+                                                          selector: #selector(handleNotification(_:)),
+                                                          name: NSWorkspace.didActivateApplicationNotification,
+                                                          object: nil)
         
         if let setting = Setting.load() {
             self.setting = setting
         } else {
-            self.setting = Setting.default
-            self.setting.save()
+            setting = Setting.default
+            setting.save()
         }
         urlFormatListTableView.reloadData()
     }
