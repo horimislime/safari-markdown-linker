@@ -61,6 +61,8 @@ final class CheckBoxCellView: NSView {
     
     private func setup() {
         addSubview(checkBox)
+        checkBox.target = self
+        checkBox.action = #selector(checkBoxDidChanged(_:))
     }
     
     override func resizeSubviews(withOldSize oldSize: NSSize) {
@@ -69,7 +71,7 @@ final class CheckBoxCellView: NSView {
         checkBox.frame = CGRect(x: (frame.width - boxSize) / 2, y: (frame.height - boxSize) / 2, width: boxSize, height: boxSize)
     }
     
-    @objc func checkBoxDidChanged(_ sender: NSButton) {
+    @objc private func checkBoxDidChanged(_ sender: NSButton) {
         delegate?.checkBoxCellView(self, didUpdateCheckStatus: sender.state == .on)
     }
 }
@@ -242,6 +244,5 @@ extension ViewController: CheckBoxCellViewDelegate {
             isEnabled: status,
             commandName: editedFormat.commandName)
         setting.save()
-        print("")
     }
 }
