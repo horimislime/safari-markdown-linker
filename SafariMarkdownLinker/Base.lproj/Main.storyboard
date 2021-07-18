@@ -689,44 +689,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="283"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UKu-Qw-IPQ">
-                                <rect key="frame" x="149" y="35" width="182" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="168" id="2e0-o2-N4A"/>
-                                    <constraint firstAttribute="height" constant="21" id="VEB-E2-vRB"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="Open extension setting" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1kD-3m-ig3">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="openExtensionButtonClicked:" target="XfG-lQ-9wD" id="vs4-wM-GRR"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P7f-j6-Vlh">
-                                <rect key="frame" x="154" y="95" width="200" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="196" id="5n3-wR-oU7"/>
-                                    <constraint firstAttribute="height" constant="17" id="Mch-Y8-dUt"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Extension is not enabled." id="cXY-zp-dmQ">
-                                    <font key="font" size="13" name="Monaco"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-d3-Cad">
-                                <rect key="frame" x="127" y="91" width="27" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="1yh-lq-UhE"/>
-                                    <constraint firstAttribute="width" constant="23" id="b4X-Pg-Ak5"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="❌" id="JFe-A2-cJt">
-                                    <font key="font" size="13" name="AppleColorEmoji"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjV-cj-1ru">
                                 <rect key="frame" x="16" y="132" width="448" height="135"/>
                                 <clipView key="contentView" id="18g-ye-ydH">
@@ -856,14 +818,68 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CEw-mW-ogX">
+                                <rect key="frame" x="16" y="101" width="448" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="m9u-5d-Yal"/>
+                                </constraints>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="5Ta-cB-fPk">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment image="NSAddTemplate" width="32"/>
+                                        <segment image="NSRemoveTemplate" width="32" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UKu-Qw-IPQ">
+                                <rect key="frame" x="149" y="13" width="182" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="2e0-o2-N4A"/>
+                                    <constraint firstAttribute="height" constant="21" id="VEB-E2-vRB"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Open extension setting" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1kD-3m-ig3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openExtensionButtonClicked:" target="XfG-lQ-9wD" id="vs4-wM-GRR"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P7f-j6-Vlh">
+                                <rect key="frame" x="154" y="73" width="200" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="5n3-wR-oU7"/>
+                                    <constraint firstAttribute="height" constant="17" id="Mch-Y8-dUt"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Extension is not enabled." id="cXY-zp-dmQ">
+                                    <font key="font" size="13" name="Monaco"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-d3-Cad">
+                                <rect key="frame" x="127" y="69" width="27" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="1yh-lq-UhE"/>
+                                    <constraint firstAttribute="width" constant="23" id="b4X-Pg-Ak5"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="❌" id="JFe-A2-cJt">
+                                    <font key="font" size="13" name="AppleColorEmoji"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="rjV-cj-1ru" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="7Wo-hV-ofn"/>
+                            <constraint firstAttribute="trailing" secondItem="CEw-mW-ogX" secondAttribute="trailing" constant="16" id="C6z-TP-hYl"/>
                             <constraint firstItem="P7f-j6-Vlh" firstAttribute="centerY" secondItem="Vam-d3-Cad" secondAttribute="centerY" id="EVP-AF-Sy8"/>
+                            <constraint firstItem="CEw-mW-ogX" firstAttribute="top" secondItem="rjV-cj-1ru" secondAttribute="bottom" constant="8" id="PNU-5S-ml5"/>
                             <constraint firstItem="rjV-cj-1ru" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="YJe-hF-y5w"/>
+                            <constraint firstItem="CEw-mW-ogX" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="dtc-vN-hlw"/>
+                            <constraint firstItem="Vam-d3-Cad" firstAttribute="top" secondItem="CEw-mW-ogX" secondAttribute="bottom" constant="8" id="eBl-JX-3iI"/>
                             <constraint firstItem="P7f-j6-Vlh" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" constant="14" id="eUe-l5-Mnu"/>
                             <constraint firstItem="UKu-Qw-IPQ" firstAttribute="top" secondItem="P7f-j6-Vlh" secondAttribute="bottom" constant="32" id="kIc-kI-HZk"/>
-                            <constraint firstItem="Vam-d3-Cad" firstAttribute="top" secondItem="rjV-cj-1ru" secondAttribute="bottom" constant="16" id="kLV-nY-3ut"/>
                             <constraint firstItem="P7f-j6-Vlh" firstAttribute="leading" secondItem="Vam-d3-Cad" secondAttribute="trailing" constant="4" id="liC-p0-PZn"/>
                             <constraint firstAttribute="trailing" secondItem="rjV-cj-1ru" secondAttribute="trailing" constant="16" id="rvs-3C-pOC"/>
                             <constraint firstItem="UKu-Qw-IPQ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="vAx-gz-iHh"/>
@@ -875,6 +891,7 @@
                         <outlet property="extensionStatusText" destination="P7f-j6-Vlh" id="PjO-2d-lUh"/>
                         <outlet property="formatColumn" destination="5NO-r0-dJv" id="dge-Pp-4rW"/>
                         <outlet property="nameColumn" destination="Me6-IR-7pU" id="dno-3y-FiH"/>
+                        <outlet property="segmentedControl" destination="CEw-mW-ogX" id="mfL-aG-gsd"/>
                         <outlet property="urlFormatListTableView" destination="lcU-7J-vgv" id="3fl-XO-Yey"/>
                     </connections>
                 </viewController>
@@ -883,4 +900,8 @@
             <point key="canvasLocation" x="75" y="963"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="14" height="13"/>
+        <image name="NSRemoveTemplate" width="14" height="4"/>
+    </resources>
 </document>

@@ -104,7 +104,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var extensionStatusText: NSTextField!
     
     @IBOutlet weak var urlFormatListTableView: NSTableView!
-    
+    @IBOutlet private weak var segmentedControl: NSSegmentedControl!
     @IBOutlet private weak var nameColumn: NSTableColumn!
     @IBOutlet private weak var formatColumn: NSTableColumn!
     @IBOutlet private weak var enabledColumn: NSTableColumn!
