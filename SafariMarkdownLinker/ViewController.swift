@@ -12,7 +12,14 @@ import SafariServices
 private let extensionIdentifier = "\(Bundle.main.bundleIdentifier!).SafariExtension"
 
 final class TextFieldCellView: NSView {
-    let textField = NSTextField(frame: .zero)
+    let textField: NSTextField = {
+        let field = NSTextField(frame: .zero)
+        field.drawsBackground = false
+        field.isBezeled = false
+        field.cell?.usesSingleLineMode = true
+        field.cell?.lineBreakMode = .byTruncatingTail
+        return field
+    }()
     
     convenience init(string: String) {
         self.init(frame: .zero)
@@ -30,7 +37,8 @@ final class TextFieldCellView: NSView {
     
     override func resizeSubviews(withOldSize oldSize: NSSize) {
         super.resizeSubviews(withOldSize: oldSize)
-        textField.frame = CGRect(x: 4, y: 4, width: frame.width - 4 * 2, height: frame.height - 4 * 2)
+        let spacing: CGFloat = 2
+        textField.frame = CGRect(x: spacing, y: spacing, width: frame.width - spacing * 2, height: frame.height - spacing * 2)
     }
 }
 
@@ -145,7 +153,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         urlFormatListTableView.delegate = self
         urlFormatListTableView.dataSource = self
-        urlFormatListTableView.rowHeight = 32
+        urlFormatListTableView.rowHeight = 24
         
         NSWorkspace.shared.notificationCenter.addObserver(self,
                                                           selector: #selector(handleNotification(_:)),
