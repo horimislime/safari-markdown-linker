@@ -167,6 +167,8 @@ class ViewController: NSViewController {
             setting.save()
         }
         urlFormatListTableView.reloadData()
+        segmentedControl.target = self
+        segmentedControl.action = #selector(handleSegmentedControlClicked)
     }
     
     deinit {
@@ -181,6 +183,10 @@ class ViewController: NSViewController {
     
     @IBAction func openExtensionButtonClicked(_ sender: NSButton) {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionIdentifier) { _ in }
+    }
+    
+    @objc private func handleSegmentedControlClicked() {
+        print("")
     }
 }
 
