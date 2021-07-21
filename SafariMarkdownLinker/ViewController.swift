@@ -168,7 +168,8 @@ class ViewController: NSViewController {
         }
         urlFormatListTableView.reloadData()
         segmentedControl.target = self
-        segmentedControl.action = #selector(handleSegmentedControlClicked)
+        segmentedControl.action = #selector(handleSegmentedControlClicked(_:))
+        updateSegmentedControlState()
     }
     
     deinit {
@@ -185,8 +186,25 @@ class ViewController: NSViewController {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionIdentifier) { _ in }
     }
     
-    @objc private func handleSegmentedControlClicked() {
-        print("")
+    @objc private func handleSegmentedControlClicked(_ sender: NSSegmentedCell) {
+        switch sender.selectedSegment {
+        case 0:
+            setting.urlFormats += [URLFormat(name: "Markdown", pattern: "[%TITLE](%URL)", isEnabled: true, commandName: "Command\(setting.urlFormats.count + 1)")]
+        case 1:
+            for i in urlFormatListTableView.selectedRowIndexes {
+                setting.urlFormats.remove(at: i)
+            }
+        default:
+            preconditionFailure()
+        }
+        setting.save()
+        urlFormatListTableView.reloadData()
+        updateSegmentedControlState()
+    }
+    
+    private func updateSegmentedControlState() {
+        segmentedControl.setEnabled(urlFormatListTableView.numberOfRows <= 5, forSegment: 0)
+        segmentedControl.setEnabled(urlFormatListTableView.numberOfSelectedRows > 0, forSegment: 1)
     }
 }
 
@@ -210,6 +228,9 @@ extension ViewController: NSTableViewDelegate {
         }
     }
     
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        updateSegmentedControlState()
+    }
 }
 
 extension ViewController: NSTableViewDataSource {
