@@ -189,7 +189,7 @@ class ViewController: NSViewController {
     @objc private func handleSegmentedControlClicked(_ sender: NSSegmentedCell) {
         switch sender.selectedSegment {
         case 0:
-            setting.urlFormats += [URLFormat(name: "Markdown", pattern: "[%TITLE](%URL)", isEnabled: true, commandName: "Command\(setting.urlFormats.count + 1)")]
+            setting.addFormat(name: "Sample", pattern: "Title: %TITLE, URL: %URL")
         case 1:
             for i in urlFormatListTableView.selectedRowIndexes {
                 setting.urlFormats.remove(at: i)

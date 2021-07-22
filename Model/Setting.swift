@@ -8,6 +8,14 @@
 
 import Foundation
 
+private let commands = [
+    "Command1",
+    "Command2",
+    "Command3",
+    "Command4",
+    "Command5",
+]
+
 struct Setting: Codable {
     var urlFormats: [URLFormat]
     
@@ -29,6 +37,17 @@ struct Setting: Codable {
         let defaults = UserDefaults(suiteName: "me.horimisli.url-linker")
         defaults?.setValue(try? PropertyListEncoder().encode(self), forKey: "Setting")
         defaults?.synchronize()
+    }
+    
+    mutating func addFormat(name: String, pattern: String, isEnabled: Bool = true) {
+        let currentCommands = urlFormats.map { $0.commandName }
+        guard let change = commands.difference(from: currentCommands).first else { return }
+        switch change {
+        case .insert(_, let commandName, _):
+            urlFormats += [URLFormat(name: name, pattern: pattern, isEnabled: isEnabled, commandName: commandName)]
+        default:
+            break
+        }
     }
 }
 
