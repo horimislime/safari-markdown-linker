@@ -8,14 +8,6 @@
 
 import Foundation
 
-private let commands = [
-    "Command1",
-    "Command2",
-    "Command3",
-    "Command4",
-    "Command5",
-]
-
 struct Setting: Codable {
     var urlFormats: [URLFormat]
     
@@ -40,14 +32,12 @@ struct Setting: Codable {
     }
     
     mutating func addFormat(name: String, pattern: String, isEnabled: Bool = true) {
-        let currentCommands = urlFormats.map { $0.commandName }
-        guard let change = commands.difference(from: currentCommands).first else { return }
-        switch change {
-        case .insert(_, let commandName, _):
-            urlFormats += [URLFormat(name: name, pattern: pattern, isEnabled: isEnabled, commandName: commandName)]
-        default:
-            break
+        var updatedFormats: [URLFormat] = []
+        for (i, f) in urlFormats.enumerated() {
+            updatedFormats.append(URLFormat(name: f.name, pattern: f.pattern, isEnabled: f.isEnabled, commandName: "Command\(i + 1)"))
         }
+        updatedFormats.append(URLFormat(name: name, pattern: pattern, isEnabled: isEnabled, commandName: "Command\(updatedFormats.count + 1)"))
+        urlFormats = updatedFormats
     }
 }
 
