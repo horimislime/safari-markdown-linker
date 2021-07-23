@@ -203,7 +203,7 @@ class ViewController: NSViewController {
     }
     
     private func updateSegmentedControlState() {
-        segmentedControl.setEnabled(urlFormatListTableView.numberOfRows <= 5, forSegment: 0)
+        segmentedControl.setEnabled(urlFormatListTableView.numberOfRows < 5, forSegment: 0)
         segmentedControl.setEnabled(urlFormatListTableView.numberOfSelectedRows > 0, forSegment: 1)
     }
 }
