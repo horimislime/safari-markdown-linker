@@ -55,6 +55,18 @@
 				<key>Text</key>
 				<string>Text</string>
 			</dict>
+			<dict>
+				<key>Command</key>
+				<string>Command4</string>
+				<key>Text</key>
+				<string>Text</string>
+			</dict>
+			<dict>
+				<key>Command</key>
+				<string>Command5</string>
+				<key>Text</key>
+				<string>Text</string>
+			</dict>
 		</array>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
