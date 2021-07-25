@@ -832,7 +832,7 @@
                                 </segmentedCell>
                             </segmentedControl>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UKu-Qw-IPQ">
-                                <rect key="frame" x="149" y="13" width="182" height="33"/>
+                                <rect key="frame" x="149" y="17" width="182" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="2e0-o2-N4A"/>
                                     <constraint firstAttribute="height" constant="21" id="VEB-E2-vRB"/>
@@ -846,7 +846,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P7f-j6-Vlh">
-                                <rect key="frame" x="154" y="73" width="200" height="17"/>
+                                <rect key="frame" x="140" y="77" width="200" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="5n3-wR-oU7"/>
                                     <constraint firstAttribute="height" constant="17" id="Mch-Y8-dUt"/>
@@ -857,41 +857,37 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-d3-Cad">
-                                <rect key="frame" x="127" y="69" width="27" height="25"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F9P-P1-9Xz">
+                                <rect key="frame" x="110" y="74" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="1yh-lq-UhE"/>
-                                    <constraint firstAttribute="width" constant="23" id="b4X-Pg-Ak5"/>
+                                    <constraint firstAttribute="height" constant="24" id="QQL-jw-X6d"/>
+                                    <constraint firstAttribute="width" constant="24" id="ohC-kz-SFd"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="❌" id="JFe-A2-cJt">
-                                    <font key="font" size="13" name="AppleColorEmoji"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusAvailable" id="odF-7z-SEu"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="rjV-cj-1ru" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="7Wo-hV-ofn"/>
                             <constraint firstAttribute="trailing" secondItem="CEw-mW-ogX" secondAttribute="trailing" constant="16" id="C6z-TP-hYl"/>
-                            <constraint firstItem="P7f-j6-Vlh" firstAttribute="centerY" secondItem="Vam-d3-Cad" secondAttribute="centerY" id="EVP-AF-Sy8"/>
                             <constraint firstItem="CEw-mW-ogX" firstAttribute="top" secondItem="rjV-cj-1ru" secondAttribute="bottom" constant="8" id="PNU-5S-ml5"/>
+                            <constraint firstItem="F9P-P1-9Xz" firstAttribute="centerY" secondItem="P7f-j6-Vlh" secondAttribute="centerY" id="RSh-S1-EVH"/>
                             <constraint firstItem="rjV-cj-1ru" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="YJe-hF-y5w"/>
+                            <constraint firstItem="P7f-j6-Vlh" firstAttribute="top" secondItem="CEw-mW-ogX" secondAttribute="bottom" constant="8" id="cc3-cj-doB"/>
                             <constraint firstItem="CEw-mW-ogX" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="dtc-vN-hlw"/>
-                            <constraint firstItem="Vam-d3-Cad" firstAttribute="top" secondItem="CEw-mW-ogX" secondAttribute="bottom" constant="8" id="eBl-JX-3iI"/>
-                            <constraint firstItem="P7f-j6-Vlh" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" constant="14" id="eUe-l5-Mnu"/>
+                            <constraint firstItem="P7f-j6-Vlh" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="eUe-l5-Mnu"/>
+                            <constraint firstItem="P7f-j6-Vlh" firstAttribute="leading" secondItem="F9P-P1-9Xz" secondAttribute="trailing" constant="8" id="fYS-eb-tjC"/>
                             <constraint firstItem="UKu-Qw-IPQ" firstAttribute="top" secondItem="P7f-j6-Vlh" secondAttribute="bottom" constant="32" id="kIc-kI-HZk"/>
-                            <constraint firstItem="P7f-j6-Vlh" firstAttribute="leading" secondItem="Vam-d3-Cad" secondAttribute="trailing" constant="4" id="liC-p0-PZn"/>
                             <constraint firstAttribute="trailing" secondItem="rjV-cj-1ru" secondAttribute="trailing" constant="16" id="rvs-3C-pOC"/>
                             <constraint firstItem="UKu-Qw-IPQ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="vAx-gz-iHh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="enabledColumn" destination="wc8-7s-Tj9" id="RW2-TJ-hQW"/>
-                        <outlet property="extensionStatusIcon" destination="Vam-d3-Cad" id="Ewb-qi-VIn"/>
                         <outlet property="extensionStatusText" destination="P7f-j6-Vlh" id="PjO-2d-lUh"/>
                         <outlet property="formatColumn" destination="5NO-r0-dJv" id="dge-Pp-4rW"/>
                         <outlet property="nameColumn" destination="Me6-IR-7pU" id="dno-3y-FiH"/>
                         <outlet property="segmentedControl" destination="CEw-mW-ogX" id="mfL-aG-gsd"/>
+                        <outlet property="statusIconImageView" destination="F9P-P1-9Xz" id="mdl-i8-PNA"/>
                         <outlet property="urlFormatListTableView" destination="lcU-7J-vgv" id="3fl-XO-Yey"/>
                     </connections>
                 </viewController>
@@ -903,5 +899,6 @@
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>
         <image name="NSRemoveTemplate" width="14" height="4"/>
+        <image name="NSStatusAvailable" width="16" height="16"/>
     </resources>
 </document>

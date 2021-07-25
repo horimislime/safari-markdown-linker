@@ -90,10 +90,10 @@ enum ExtensionStatus {
     case disabled
     case unknown(NSError)
     
-    var icon: String {
+    var image: NSImage {
         switch self {
-        case .enabled: return "✅"
-        case .disabled, .unknown(_): return "❌"
+        case .enabled: return NSImage(named: NSImage.statusAvailableName)!
+        case .disabled, .unknown(_): return NSImage(named: NSImage.statusUnavailableName)!
         }
     }
     
@@ -107,8 +107,8 @@ enum ExtensionStatus {
 }
 
 class ViewController: NSViewController {
-
-    @IBOutlet weak var extensionStatusIcon: NSTextField!
+    
+    @IBOutlet private weak var statusIconImageView: NSImageView!
     @IBOutlet weak var extensionStatusText: NSTextField!
     
     @IBOutlet weak var urlFormatListTableView: NSTableView!
@@ -121,7 +121,7 @@ class ViewController: NSViewController {
     
     private func updateView(withStatus status: ExtensionStatus) {
         DispatchQueue.main.async {
-            self.extensionStatusIcon.stringValue = status.icon
+            self.statusIconImageView.image = status.image
             self.extensionStatusText.stringValue = status.text
         }
     }
