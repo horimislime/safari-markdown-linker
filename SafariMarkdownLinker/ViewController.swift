@@ -106,12 +106,11 @@ enum ExtensionStatus {
     }
 }
 
-class ViewController: NSViewController {
+final class ViewController: NSViewController {
     
     @IBOutlet private weak var statusIconImageView: NSImageView!
-    @IBOutlet weak var extensionStatusText: NSTextField!
-    
-    @IBOutlet weak var urlFormatListTableView: NSTableView!
+    @IBOutlet private weak var extensionStatusText: NSTextField!
+    @IBOutlet private weak var urlFormatListTableView: NSTableView!
     @IBOutlet private weak var segmentedControl: NSSegmentedControl!
     @IBOutlet private weak var nameColumn: NSTableColumn!
     @IBOutlet private weak var formatColumn: NSTableColumn!
@@ -176,13 +175,13 @@ class ViewController: NSViewController {
         NSWorkspace.shared.notificationCenter.removeObserver(self)
     }
     
-    @objc func handleNotification(_ notification: Notification) {
+    @objc private func handleNotification(_ notification: Notification) {
         if NSRunningApplication.current.isActive {
             getExtensionState()
         }
     }
     
-    @IBAction func openExtensionButtonClicked(_ sender: NSButton) {
+    @IBAction private func openExtensionButtonClicked(_ sender: NSButton) {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionIdentifier) { _ in }
     }
     
@@ -207,6 +206,8 @@ class ViewController: NSViewController {
         segmentedControl.setEnabled(urlFormatListTableView.numberOfSelectedRows > 0, forSegment: 1)
     }
 }
+
+// MARK: - NSTableViewDelegate
 
 extension ViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -233,12 +234,16 @@ extension ViewController: NSTableViewDelegate {
     }
 }
 
+// MARK: - NSTableViewDataSource
+
 extension ViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         guard let setting = setting else { return 0 }
         return setting.urlFormats.count
     }
 }
+
+// MARK: - NSTextFieldDelegate
 
 extension ViewController: NSTextFieldDelegate {
     func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
@@ -267,6 +272,8 @@ extension ViewController: NSTextFieldDelegate {
         return true
     }
 }
+
+// MARK: - CheckBoxCellViewDelegate
 
 extension ViewController: CheckBoxCellViewDelegate {
     func checkBoxCellView(_ view: CheckBoxCellView, didUpdateCheckStatus status: Bool) {
