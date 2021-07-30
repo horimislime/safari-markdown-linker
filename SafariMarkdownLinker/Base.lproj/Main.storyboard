@@ -686,17 +686,17 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SafariMarkdownLinker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="347"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="472"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjV-cj-1ru">
-                                <rect key="frame" x="16" y="140" width="448" height="191"/>
+                                <rect key="frame" x="16" y="140" width="448" height="316"/>
                                 <clipView key="contentView" id="18g-ye-ydH">
-                                    <rect key="frame" x="1" y="1" width="446" height="189"/>
+                                    <rect key="frame" x="1" y="1" width="446" height="314"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="mF0-J4-wj3" viewBased="YES" id="lcU-7J-vgv">
-                                            <rect key="frame" x="0.0" y="0.0" width="446" height="161"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="446" height="286"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -849,7 +849,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1005.5"/>
+            <point key="canvasLocation" x="75" y="1068"/>
         </scene>
     </scenes>
     <resources>
