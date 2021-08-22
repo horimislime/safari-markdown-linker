@@ -1,6 +1,6 @@
 //
 //  Setting.swift
-//  SafariMarkdownLinker
+//  URLLinker
 //
 //  Created by horimislime on 2021/07/14.
 //  Copyright © 2021 horimislime. All rights reserved.

@@ -46,7 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13955DAC1F65710D007A11C0 /* SafariMarkdownLinker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafariMarkdownLinker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13955DAC1F65710D007A11C0 /* URL Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URL Linker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13955DAF1F65710D007A11C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13955DB11F65710D007A11C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		13955DB31F65710D007A11C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		13955DD01F65715A007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13955DD11F65715A007A11C0 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		13AAEDBA269E6BFB0074658E /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
-		13FF6AB11F78C70B00CA4CAA /* SafariMarkdownLinker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SafariMarkdownLinker.entitlements; sourceTree = "<group>"; };
+		13FF6AB11F78C70B00CA4CAA /* URLLinker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = URLLinker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				13AAEDB9269E6BD20074658E /* Model */,
-				13955DAE1F65710D007A11C0 /* SafariMarkdownLinker */,
+				13955DAE1F65710D007A11C0 /* URLLinker */,
 				13955DC61F65715A007A11C0 /* SafariExtension */,
 				13955DC31F65715A007A11C0 /* Frameworks */,
 				13955DAD1F65710D007A11C0 /* Products */,
@@ -97,23 +97,23 @@
 		13955DAD1F65710D007A11C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13955DAC1F65710D007A11C0 /* SafariMarkdownLinker.app */,
+				13955DAC1F65710D007A11C0 /* URL Linker.app */,
 				13955DC21F65715A007A11C0 /* SafariExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13955DAE1F65710D007A11C0 /* SafariMarkdownLinker */ = {
+		13955DAE1F65710D007A11C0 /* URLLinker */ = {
 			isa = PBXGroup;
 			children = (
-				13FF6AB11F78C70B00CA4CAA /* SafariMarkdownLinker.entitlements */,
+				13FF6AB11F78C70B00CA4CAA /* URLLinker.entitlements */,
 				13955DAF1F65710D007A11C0 /* AppDelegate.swift */,
 				13955DB11F65710D007A11C0 /* ViewController.swift */,
 				13955DB31F65710D007A11C0 /* Assets.xcassets */,
 				13955DB51F65710D007A11C0 /* Main.storyboard */,
 				13955DB81F65710D007A11C0 /* Info.plist */,
 			);
-			path = SafariMarkdownLinker;
+			path = URLLinker;
 			sourceTree = "<group>";
 		};
 		13955DC31F65715A007A11C0 /* Frameworks */ = {
@@ -156,9 +156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13955DAB1F65710D007A11C0 /* SafariMarkdownLinker */ = {
+		13955DAB1F65710D007A11C0 /* URL Linker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "SafariMarkdownLinker" */;
+			buildConfigurationList = 13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "URL Linker" */;
 			buildPhases = (
 				13955DA81F65710D007A11C0 /* Sources */,
 				13955DA91F65710D007A11C0 /* Frameworks */,
@@ -170,9 +170,9 @@
 			dependencies = (
 				13955DD61F65715A007A11C0 /* PBXTargetDependency */,
 			);
-			name = SafariMarkdownLinker;
+			name = "URL Linker";
 			productName = SafariMarkdownLinker;
-			productReference = 13955DAC1F65710D007A11C0 /* SafariMarkdownLinker.app */;
+			productReference = 13955DAC1F65710D007A11C0 /* URL Linker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		13955DC11F65715A007A11C0 /* SafariExtension */ = {
@@ -221,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 13955DA71F65710D007A11C0 /* Build configuration list for PBXProject "SafariMarkdownLinker" */;
+			buildConfigurationList = 13955DA71F65710D007A11C0 /* Build configuration list for PBXProject "URLLinker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -234,7 +234,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13955DAB1F65710D007A11C0 /* SafariMarkdownLinker */,
+				13955DAB1F65710D007A11C0 /* URL Linker */,
 				13955DC11F65715A007A11C0 /* SafariExtension */,
 			);
 		};
@@ -431,12 +431,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SafariMarkdownLinker/SafariMarkdownLinker.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_ENTITLEMENTS = URLLinker/URLLinker.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SafariMarkdownLinker/Info.plist;
+				INFOPLIST_FILE = URLLinker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker;
@@ -452,12 +452,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SafariMarkdownLinker/SafariMarkdownLinker.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_ENTITLEMENTS = URLLinker/URLLinker.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SafariMarkdownLinker/Info.plist;
+				INFOPLIST_FILE = URLLinker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.SafariMarkdownLinker;
@@ -510,7 +510,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13955DA71F65710D007A11C0 /* Build configuration list for PBXProject "SafariMarkdownLinker" */ = {
+		13955DA71F65710D007A11C0 /* Build configuration list for PBXProject "URLLinker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13955DB91F65710D007A11C0 /* Debug */,
@@ -519,7 +519,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "SafariMarkdownLinker" */ = {
+		13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "URL Linker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13955DBC1F65710D007A11C0 /* Debug */,
