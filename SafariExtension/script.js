@@ -22,6 +22,8 @@ document.addEventListener('contextmenu', (event) => {
     notifyTargetLink(clickedLink.innerHTML, clickedLink.href);
 
   } else {
-    notifyTargetLink(document.title, location.href);
+    const selectedText = window.getSelection().toString();
+    const title = selectedText.length === 0 ? document.title : selectedText;
+    notifyTargetLink(title, location.href);
   }
 }, true);

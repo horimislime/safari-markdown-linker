@@ -27,13 +27,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
     
     override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
-        
         guard let format = getAssociatedFormat(withCommand: command) else { return }
         
-//        if let title = lastLinkDetail?["title"] as? String, let urlString = lastLinkDetail?["url"] as? String, let url = URL(string: urlString) {
-//            copyWithFormat(format, title: title, url: url)
-//            return
-//        }
+        if let title = lastLinkDetail?["title"] as? String, let urlString = lastLinkDetail?["url"] as? String, let url = URL(string: urlString) {
+            copyWithFormat(format, title: title, url: url)
+            return
+        }
         
         page.getPropertiesWithCompletionHandler { properties in
             guard let title = properties?.title, let url = properties?.url else { return }
