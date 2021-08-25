@@ -12,7 +12,8 @@ document.addEventListener('contextmenu', (event) => {
 
   const parent = event.srcElement.parentElement;
   const clickedLink = Array.from(parent.getElementsByTagName('a')).filter((element) => {
-    return element.innerHTML === window.getSelection().toString();
+    const selectedText = window.getSelection().toString();
+    return selectedText.length > 0 && element.innerHTML === selectedText;
   })[0];
 
   if (parent.tagName === 'a') {
