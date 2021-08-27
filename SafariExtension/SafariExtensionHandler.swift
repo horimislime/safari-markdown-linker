@@ -20,7 +20,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
         if let format = getAssociatedFormat(withCommand: command) {
-            validationHandler(false, "\(format.name)")
+            validationHandler(!format.isEnabled, "\(format.name)")
         } else {
             validationHandler(true, nil)
         }
