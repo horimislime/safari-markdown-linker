@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>MarkdownLinker</string>
+	<string>URL Linker</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -41,7 +41,7 @@
 				<key>Command</key>
 				<string>Command1</string>
 				<key>Text</key>
-				<string>Copy Markdown Link</string>
+				<string>Text</string>
 			</dict>
 			<dict>
 				<key>Command</key>
@@ -79,8 +79,8 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 horimislime. All rights reserved.</string>
+	<string>Copyright © 2021 horimislime. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>Copying markdown link gets easy.</string>
+	<string>Easy way to copy website&apos;s URL in your favorite format.</string>
 </dict>
 </plist>
