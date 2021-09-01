@@ -21,7 +21,7 @@
 		13955DCA1F65715A007A11C0 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DC91F65715A007A11C0 /* SafariExtensionHandler.swift */; };
 		13955DCC1F65715A007A11C0 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DCB1F65715A007A11C0 /* SafariExtensionViewController.swift */; };
 		13955DCF1F65715A007A11C0 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13955DCD1F65715A007A11C0 /* SafariExtensionViewController.xib */; };
-		13955DD71F65715A007A11C0 /* SafariExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13955DC21F65715A007A11C0 /* SafariExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		13955DD71F65715A007A11C0 /* macOS (Extension).appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13955DC21F65715A007A11C0 /* macOS (Extension).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		13AAEDBB269E6BFB0074658E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAEDBA269E6BFB0074658E /* Setting.swift */; };
 		13AAEDBC269E6BFD0074658E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAEDBA269E6BFB0074658E /* Setting.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				13955DD71F65715A007A11C0 /* SafariExtension.appex in Embed App Extensions */,
+				13955DD71F65715A007A11C0 /* macOS (Extension).appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,13 +57,13 @@
 		131C31E026DE78A7000F03EA /* icon-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-512.png"; sourceTree = "<group>"; };
 		131C31E126DE78A7000F03EA /* icon-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-256.png"; sourceTree = "<group>"; };
 		131C31E226DE78A7000F03EA /* icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-128.png"; sourceTree = "<group>"; };
-		13955DAC1F65710D007A11C0 /* URL Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URL Linker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13955DAC1F65710D007A11C0 /* macOS (App).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "macOS (App).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13955DAF1F65710D007A11C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13955DB11F65710D007A11C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		13955DB31F65710D007A11C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13955DB61F65710D007A11C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13955DB81F65710D007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13955DC21F65715A007A11C0 /* SafariExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SafariExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		13955DC21F65715A007A11C0 /* macOS (Extension).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "macOS (Extension).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13955DC41F65715A007A11C0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		13955DC81F65715A007A11C0 /* macOS (Extension).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS (Extension).entitlements"; sourceTree = "<group>"; };
 		13955DC91F65715A007A11C0 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 		13955DAD1F65710D007A11C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13955DAC1F65710D007A11C0 /* URL Linker.app */,
-				13955DC21F65715A007A11C0 /* SafariExtension.appex */,
+				13955DAC1F65710D007A11C0 /* macOS (App).app */,
+				13955DC21F65715A007A11C0 /* macOS (Extension).appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,9 +211,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13955DAB1F65710D007A11C0 /* URL Linker */ = {
+		13955DAB1F65710D007A11C0 /* macOS (App) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "URL Linker" */;
+			buildConfigurationList = 13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "macOS (App)" */;
 			buildPhases = (
 				13955DA81F65710D007A11C0 /* Sources */,
 				13955DA91F65710D007A11C0 /* Frameworks */,
@@ -225,14 +225,14 @@
 			dependencies = (
 				13955DD61F65715A007A11C0 /* PBXTargetDependency */,
 			);
-			name = "URL Linker";
+			name = "macOS (App)";
 			productName = SafariMarkdownLinker;
-			productReference = 13955DAC1F65710D007A11C0 /* URL Linker.app */;
+			productReference = 13955DAC1F65710D007A11C0 /* macOS (App).app */;
 			productType = "com.apple.product-type.application";
 		};
-		13955DC11F65715A007A11C0 /* SafariExtension */ = {
+		13955DC11F65715A007A11C0 /* macOS (Extension) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13955DD81F65715A007A11C0 /* Build configuration list for PBXNativeTarget "SafariExtension" */;
+			buildConfigurationList = 13955DD81F65715A007A11C0 /* Build configuration list for PBXNativeTarget "macOS (Extension)" */;
 			buildPhases = (
 				13955DBE1F65715A007A11C0 /* Sources */,
 				13955DBF1F65715A007A11C0 /* Frameworks */,
@@ -242,9 +242,9 @@
 			);
 			dependencies = (
 			);
-			name = SafariExtension;
+			name = "macOS (Extension)";
 			productName = SafariExtension;
-			productReference = 13955DC21F65715A007A11C0 /* SafariExtension.appex */;
+			productReference = 13955DC21F65715A007A11C0 /* macOS (Extension).appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -289,8 +289,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13955DAB1F65710D007A11C0 /* URL Linker */,
-				13955DC11F65715A007A11C0 /* SafariExtension */,
+				13955DAB1F65710D007A11C0 /* macOS (App) */,
+				13955DC11F65715A007A11C0 /* macOS (Extension) */,
 			);
 		};
 /* End PBXProject section */
@@ -347,7 +347,7 @@
 /* Begin PBXTargetDependency section */
 		13955DD61F65715A007A11C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13955DC11F65715A007A11C0 /* SafariExtension */;
+			target = 13955DC11F65715A007A11C0 /* macOS (Extension) */;
 			targetProxy = 13955DD51F65715A007A11C0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -579,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "URL Linker" */ = {
+		13955DBB1F65710D007A11C0 /* Build configuration list for PBXNativeTarget "macOS (App)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13955DBC1F65710D007A11C0 /* Debug */,
@@ -588,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13955DD81F65715A007A11C0 /* Build configuration list for PBXNativeTarget "SafariExtension" */ = {
+		13955DD81F65715A007A11C0 /* Build configuration list for PBXNativeTarget "macOS (Extension)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13955DD91F65715A007A11C0 /* Debug */,
