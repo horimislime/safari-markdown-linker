@@ -30,7 +30,7 @@
 		13423F0826DFBDF200A7A290 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 131C31CE26DE779E000F03EA /* content.js */; };
 		13423F0926DFBDF200A7A290 /* icon-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 131C31E126DE78A7000F03EA /* icon-256.png */; };
 		13423F0A26DFBDF200A7A290 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 131C31C926DE779E000F03EA /* manifest.json */; };
-		13423F1226DFBE4300A7A290 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13423F1126DFBE4300A7A290 /* Info.plist */; };
+		138F3D2126E66D5500E44D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13955DB31F65710D007A11C0 /* Assets.xcassets */; };
 		13955DB01F65710D007A11C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DAF1F65710D007A11C0 /* AppDelegate.swift */; };
 		13955DB21F65710D007A11C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DB11F65710D007A11C0 /* ViewController.swift */; };
 		13955DB41F65710D007A11C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13955DB31F65710D007A11C0 /* Assets.xcassets */; };
@@ -408,7 +408,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = horimislime;
 				TargetAttributes = {
 					13423EDD26DFBD6700A7A290 = {
@@ -474,7 +474,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13423F1226DFBE4300A7A290 /* Info.plist in Resources */,
 				13423F0426DFBDF200A7A290 /* SafariExtensionViewController.xib in Resources */,
 				13423F0526DFBDF200A7A290 /* icon-512.png in Resources */,
 				13423F0626DFBDF200A7A290 /* icon-128.png in Resources */,
@@ -513,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13C110DE26E11A810065A33E /* LaunchScreen.storyboard in Resources */,
+				138F3D2126E66D5500E44D23 /* Assets.xcassets in Resources */,
 				13C110D926E11A800065A33E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
