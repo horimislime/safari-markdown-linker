@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13423EDD26DFBD6700A7A290"
-               BuildableName = "URL Linker.app"
+               BlueprintIdentifier = "13C110CE26E11A800065A33E"
+               BuildableName = "iOS (App).app"
                BlueprintName = "iOS (App)"
                ReferencedContainer = "container:URLLinker.xcodeproj">
             </BuildableReference>
@@ -44,8 +44,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13423EDD26DFBD6700A7A290"
-            BuildableName = "URL Linker.app"
+            BlueprintIdentifier = "13C110CE26E11A800065A33E"
+            BuildableName = "iOS (App).app"
             BlueprintName = "iOS (App)"
             ReferencedContainer = "container:URLLinker.xcodeproj">
          </BuildableReference>
@@ -61,8 +61,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13423EDD26DFBD6700A7A290"
-            BuildableName = "URL Linker.app"
+            BlueprintIdentifier = "13C110CE26E11A800065A33E"
+            BuildableName = "iOS (App).app"
             BlueprintName = "iOS (App)"
             ReferencedContainer = "container:URLLinker.xcodeproj">
          </BuildableReference>
