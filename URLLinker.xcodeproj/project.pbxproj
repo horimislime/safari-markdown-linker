@@ -32,6 +32,8 @@
 		135D624726E7B39C005B7527 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 135D624626E7B39C005B7527 /* popup.css */; };
 		135D624926E7B39C005B7527 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 135D624826E7B39C005B7527 /* popup.js */; };
 		135D624B26E7B39C005B7527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 135D622C26E7B39C005B7527 /* Assets.xcassets */; };
+		137AFE7326E8F1C800D092D8 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 137AFE7226E8F1C800D092D8 /* background.js */; };
+		137AFE7526E8F81800D092D8 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137AFE7426E8F81800D092D8 /* SafariWebExtensionHandler.swift */; };
 		13955DB01F65710D007A11C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DAF1F65710D007A11C0 /* AppDelegate.swift */; };
 		13955DB21F65710D007A11C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DB11F65710D007A11C0 /* ViewController.swift */; };
 		13955DB41F65710D007A11C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13955DB31F65710D007A11C0 /* Assets.xcassets */; };
@@ -116,6 +118,8 @@
 		135D624626E7B39C005B7527 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		135D624826E7B39C005B7527 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		135D624A26E7B39C005B7527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		137AFE7226E8F1C800D092D8 /* background.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		137AFE7426E8F81800D092D8 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		13955DAC1F65710D007A11C0 /* URL Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URL Linker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13955DAF1F65710D007A11C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13955DB11F65710D007A11C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				131C31C926DE779E000F03EA /* manifest.json */,
 				131C31CB26DE779E000F03EA /* _locales */,
 				131C31CE26DE779E000F03EA /* content.js */,
+				137AFE7226E8F1C800D092D8 /* background.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				13955DC91F65715A007A11C0 /* SafariExtensionHandler.swift */,
+				137AFE7426E8F81800D092D8 /* SafariWebExtensionHandler.swift */,
 				13955DCB1F65715A007A11C0 /* SafariExtensionViewController.swift */,
 				131C31BA26DE779E000F03EA /* Resources */,
 			);
@@ -512,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137AFE7326E8F1C800D092D8 /* background.js in Resources */,
 				13955DCF1F65715A007A11C0 /* SafariExtensionViewController.xib in Resources */,
 				131C31E326DE78A7000F03EA /* icon-512.png in Resources */,
 				131C31E526DE78A7000F03EA /* icon-128.png in Resources */,
@@ -558,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13955DCC1F65715A007A11C0 /* SafariExtensionViewController.swift in Sources */,
+				137AFE7526E8F81800D092D8 /* SafariWebExtensionHandler.swift in Sources */,
 				13955DCA1F65715A007A11C0 /* SafariExtensionHandler.swift in Sources */,
 				13AAEDBC269E6BFD0074658E /* Setting.swift in Sources */,
 			);

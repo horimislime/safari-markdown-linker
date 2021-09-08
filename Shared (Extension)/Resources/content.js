@@ -28,3 +28,13 @@ document.addEventListener('contextmenu', (event) => {
     notifyTargetLink(title, location.href);
   }
 }, true);
+
+browser.runtime.sendMessage({ greeting: "hello" }).then((response) => {
+    console.log("Received response: ", response);
+});
+
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log("Received request: ", request);
+});
+
+console.log('hello');
