@@ -42,4 +42,4 @@ xcuserdata
 *.moved-aside
 DerivedData
 *.xcuserstate
-
+node_modules

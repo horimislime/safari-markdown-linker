@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13C110CE26E11A800065A33E"
-               BuildableName = "iOS (App).app"
-               BlueprintName = "iOS (App)"
+               BlueprintIdentifier = "135D621526E7B39B005B7527"
+               BuildableName = "URL Linker.app"
+               BlueprintName = "URL Linker"
                ReferencedContainer = "container:URLLinker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13C110CE26E11A800065A33E"
-            BuildableName = "iOS (App).app"
-            BlueprintName = "iOS (App)"
+            BlueprintIdentifier = "135D621526E7B39B005B7527"
+            BuildableName = "URL Linker.app"
+            BlueprintName = "URL Linker"
             ReferencedContainer = "container:URLLinker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -57,16 +57,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13C110CE26E11A800065A33E"
-            BuildableName = "iOS (App).app"
-            BlueprintName = "iOS (App)"
-            ReferencedContainer = "container:URLLinker.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

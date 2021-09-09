@@ -29,7 +29,7 @@
 		135D624126E7B39C005B7527 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 135D624026E7B39C005B7527 /* background.js */; };
 		135D624326E7B39C005B7527 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 135D624226E7B39C005B7527 /* content.js */; };
 		135D624526E7B39C005B7527 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 135D624426E7B39C005B7527 /* popup.html */; };
-		135D624726E7B39C005B7527 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 135D624626E7B39C005B7527 /* popup.css */; };
+		135D624726E7B39C005B7527 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 135D624626E7B39C005B7527 /* style.css */; };
 		135D624926E7B39C005B7527 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 135D624826E7B39C005B7527 /* popup.js */; };
 		135D624B26E7B39C005B7527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 135D622C26E7B39C005B7527 /* Assets.xcassets */; };
 		137AFE7326E8F1C800D092D8 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 137AFE7226E8F1C800D092D8 /* background.js */; };
@@ -45,6 +45,7 @@
 		13955DD71F65715A007A11C0 /* macOS (Extension).appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13955DC21F65715A007A11C0 /* macOS (Extension).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		13AAEDBB269E6BFB0074658E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAEDBA269E6BFB0074658E /* Setting.swift */; };
 		13AAEDBC269E6BFD0074658E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAEDBA269E6BFB0074658E /* Setting.swift */; };
+		13C08C8826EA3754003FBC08 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 13C08C8726EA3754003FBC08 /* popup.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +116,7 @@
 		135D624026E7B39C005B7527 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
 		135D624226E7B39C005B7527 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 		135D624426E7B39C005B7527 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
-		135D624626E7B39C005B7527 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		135D624626E7B39C005B7527 /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		135D624826E7B39C005B7527 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		135D624A26E7B39C005B7527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137AFE7226E8F1C800D092D8 /* background.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 		13955DCE1F65715A007A11C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		13955DD01F65715A007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13AAEDBA269E6BFB0074658E /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		13C08C8726EA3754003FBC08 /* popup.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		13FF6AB11F78C70B00CA4CAA /* macOS (App).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS (App).entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,8 +274,9 @@
 				135D624026E7B39C005B7527 /* background.js */,
 				135D624226E7B39C005B7527 /* content.js */,
 				135D624426E7B39C005B7527 /* popup.html */,
-				135D624626E7B39C005B7527 /* popup.css */,
+				135D624626E7B39C005B7527 /* style.css */,
 				135D624826E7B39C005B7527 /* popup.js */,
+				13C08C8726EA3754003FBC08 /* popup.css */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -495,10 +498,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				135D624126E7B39C005B7527 /* background.js in Resources */,
-				135D624726E7B39C005B7527 /* popup.css in Resources */,
+				135D624726E7B39C005B7527 /* style.css in Resources */,
 				135D624526E7B39C005B7527 /* popup.html in Resources */,
 				135D623D26E7B39C005B7527 /* images in Resources */,
 				135D623F26E7B39C005B7527 /* manifest.json in Resources */,
+				13C08C8826EA3754003FBC08 /* popup.css in Resources */,
 				135D623B26E7B39C005B7527 /* _locales in Resources */,
 				135D624326E7B39C005B7527 /* content.js in Resources */,
 				135D624926E7B39C005B7527 /* popup.js in Resources */,
@@ -718,7 +722,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.horimisli.URL-Linker";
+				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.URLLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -756,7 +760,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.horimisli.URL-Linker";
+				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.URLLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

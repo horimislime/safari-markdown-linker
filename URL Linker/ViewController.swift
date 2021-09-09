@@ -9,27 +9,55 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
+class TableHeaderView: UITableViewHeaderFooterView {
+    let label: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text =
+"""
+        You can define format to copy page URL and title.
+        Within URL format, you can put %TITLE and %URL, these value will be replaced to title and URL.
+"""
+        return label
+    }()
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(label)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        label.frame = self.bounds
+    }
+}
 
-    @IBOutlet var webView: WKWebView!
+class ViewController: UITableViewController {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.webView.navigationDelegate = self
-        self.webView.scrollView.isScrollEnabled = false
-
-        self.webView.configuration.userContentController.add(self, name: "controller")
-
-        self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
+        title = "URL Linker"
+        let header = TableHeaderView()
+        header.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80)
+        tableView.tableHeaderView = header
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(handleAddButton))
     }
-
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        // Override point for customization.
+    
+    @objc private func handleAddButton() {
+        let vc = AddFormatViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
     }
+}
 
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        // Override point for customization.
+final class AddFormatViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Add Format"
     }
-
 }

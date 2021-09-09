@@ -1,0 +1,14 @@
+{
+  "name": "url-linker-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "horimislime",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^2.2.14"
+  }
+}
