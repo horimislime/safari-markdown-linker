@@ -12,6 +12,7 @@ import WebKit
 class TableHeaderView: UITableViewHeaderFooterView {
     let label: UILabel = {
         let label = UILabel(frame: .zero)
+        label.numberOfLines = 0
         label.text =
 """
         You can define format to copy page URL and title.
@@ -22,16 +23,19 @@ class TableHeaderView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+        translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 4),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 4)
+        ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        label.frame = self.bounds
     }
 }
 
@@ -42,7 +46,8 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         title = "URL Linker"
         let header = TableHeaderView()
-        header.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80)
+        tableView.tableHeaderView = header
+        header.layoutIfNeeded()
         tableView.tableHeaderView = header
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(handleAddButton))
@@ -56,8 +61,37 @@ class ViewController: UITableViewController {
 }
 
 final class AddFormatViewController: UIViewController {
+    
+    private let tableView: UITableView = {
+        let view = UITableView(frame: .zero, style: .insetGrouped)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGroupedBackground
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Format"
+        view.backgroundColor = .systemBackground
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.close,
+                                                            target: self,
+                                                            action: #selector(handleDoneButton))
+        
+        view.addSubview(tableView)
+        configure()
+    }
+    
+    func configure() {
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        ])
+    }
+    
+    @objc private func handleDoneButton() {
+        dismiss(animated: true)
     }
 }
