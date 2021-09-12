@@ -29,8 +29,8 @@ class TableHeaderView: UITableViewHeaderFooterView {
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
             label.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 4),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 4)
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
         ])
     }
     
@@ -40,7 +40,9 @@ class TableHeaderView: UITableViewHeaderFooterView {
 }
 
 class ViewController: UITableViewController {
-
+    
+    private var setting: Setting!
+    private var cells: [UITableViewCell] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,14 +51,32 @@ class ViewController: UITableViewController {
         tableView.tableHeaderView = header
         header.layoutIfNeeded()
         tableView.tableHeaderView = header
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(handleAddButton))
+        
+        reloadCells()
+        tableView.reloadData()
+    }
+    
+    private func reloadCells() {
+        setting = Setting.load() ?? Setting.default
+        cells = setting.urlFormats.map {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = $0.name
+            return cell
+        }
     }
     
     @objc private func handleAddButton() {
         let vc = AddFormatViewController()
         let nav = UINavigationController(rootViewController: vc)
         present(nav, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        cells.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        cells[indexPath.row]
     }
 }
 
