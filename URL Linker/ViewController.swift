@@ -67,7 +67,8 @@ class ViewController: UITableViewController {
     }
     
     @objc private func handleAddButton() {
-        let vc = AddFormatViewController()
+        let vc = AddFormatViewController(setting: setting)
+        vc.delegate = self
         let nav = UINavigationController(rootViewController: vc)
         present(nav, animated: true)
     }
@@ -77,6 +78,16 @@ class ViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cells[indexPath.row]
+    }
+}
+
+extension ViewController: AddFormatViewControllerDelegate {
+    func addFormatViewController(_ controller: AddFormatViewController, didFinishWithSetting setting: Setting) {
+        dismiss(animated: true)
+    }
+    
+    func addFormatViewControllerDidClose(_ controller: AddFormatViewController) {
+        dismiss(animated: true)
     }
 }
 
@@ -124,7 +135,14 @@ final class TextFieldCell: UITableViewCell {
     }
 }
 
+protocol AddFormatViewControllerDelegate: NSObject {
+    func addFormatViewController(_ controller: AddFormatViewController, didFinishWithSetting setting: Setting)
+    func addFormatViewControllerDidClose(_ controller: AddFormatViewController)
+}
+
 final class AddFormatViewController: UIViewController {
+    
+    weak var delegate: AddFormatViewControllerDelegate?
     
     private let tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
@@ -146,12 +164,25 @@ final class AddFormatViewController: UIViewController {
     
     private lazy var cells = [formatNameCell, formatPatternCell]
     
+    private let setting: Setting
+    
+    init(setting: Setting) {
+        self.setting = setting
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Format"
         view.backgroundColor = .systemBackground
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.close,
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
+                                                            style: .done,
                                                             target: self,
                                                             action: #selector(handleDoneButton))
         
@@ -171,8 +202,12 @@ final class AddFormatViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    @objc private func handleCancelButton() {
+        delegate?.addFormatViewControllerDidClose(self)
+    }
+    
     @objc private func handleDoneButton() {
-        dismiss(animated: true)
+        delegate?.addFormatViewController(self, didFinishWithSetting: setting)
     }
 }
 
