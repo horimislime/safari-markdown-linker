@@ -67,10 +67,7 @@ class ViewController: UITableViewController {
     }
     
     @objc private func handleAddButton() {
-        let vc = AddFormatViewController(setting: setting)
-        vc.delegate = self
-        let nav = UINavigationController(rootViewController: vc)
-        present(nav, animated: true)
+        presentEditingView()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,10 +76,21 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cells[indexPath.row]
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentEditingView(for: setting.urlFormats[indexPath.row])
+    }
+    
+    private func presentEditingView(for format: URLFormat? = nil) {
+        let vc = AddFormatViewController(format: format)
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
+    }
 }
 
 extension ViewController: AddFormatViewControllerDelegate {
-    func addFormatViewController(_ controller: AddFormatViewController, didFinishWithSetting setting: Setting) {
+    func addFormatViewController(_ controller: AddFormatViewController, didFinishEditingFormat format: URLFormat) {
         dismiss(animated: true)
     }
     
@@ -136,7 +144,7 @@ final class TextFieldCell: UITableViewCell {
 }
 
 protocol AddFormatViewControllerDelegate: NSObject {
-    func addFormatViewController(_ controller: AddFormatViewController, didFinishWithSetting setting: Setting)
+    func addFormatViewController(_ controller: AddFormatViewController, didFinishEditingFormat setting: URLFormat)
     func addFormatViewControllerDidClose(_ controller: AddFormatViewController)
 }
 
@@ -163,12 +171,21 @@ final class AddFormatViewController: UIViewController {
     }()
     
     private lazy var cells = [formatNameCell, formatPatternCell]
+    private lazy var cancelNavigationButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelButton))
+    private lazy var doneNavigationButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "Done",
+                                    style: .done,
+                                    target: self,
+                                    action: #selector(handleDoneButton))
+        button.isEnabled = false
+        return button
+    }()
     
-    private let setting: Setting
+    private let initialFormat: URLFormat?
     
-    init(setting: Setting) {
-        self.setting = setting
-        super.init()
+    init(format: URLFormat? = nil) {
+        initialFormat = format
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -180,17 +197,14 @@ final class AddFormatViewController: UIViewController {
         title = "Add Format"
         view.backgroundColor = .systemBackground
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelButton))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(handleDoneButton))
+        navigationItem.leftBarButtonItem = cancelNavigationButton
+        navigationItem.rightBarButtonItem = doneNavigationButton
         
         view.addSubview(tableView)
-        configure()
+        configureTableView()
     }
     
-    func configure() {
+    private func configureTableView() {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
@@ -200,6 +214,17 @@ final class AddFormatViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 24
         tableView.dataSource = self
+        
+        formatNameCell.textField.delegate = self
+        formatPatternCell.textField.delegate = self
+        
+        guard let format = initialFormat else { return }
+        formatNameCell.textField.text = format.name
+        formatPatternCell.textField.text = format.pattern
+    }
+    
+    private func updateDoneButtonState() {
+        doneNavigationButton.isEnabled = !(formatNameCell.textField.text ?? "").isEmpty && !(formatPatternCell.textField.text ?? "").isEmpty
     }
     
     @objc private func handleCancelButton() {
@@ -207,7 +232,19 @@ final class AddFormatViewController: UIViewController {
     }
     
     @objc private func handleDoneButton() {
-        delegate?.addFormatViewController(self, didFinishWithSetting: setting)
+        guard let name = formatNameCell.textField.text, let pattern = formatPatternCell.textField.text else { preconditionFailure() }
+        let format = URLFormat(name: name, pattern: pattern, isEnabled: true, commandName: "")
+        delegate?.addFormatViewController(self, didFinishEditingFormat: format)
+    }
+}
+
+extension AddFormatViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        updateDoneButtonState()
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateDoneButtonState()
     }
 }
 
