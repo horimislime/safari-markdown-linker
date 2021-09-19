@@ -87,15 +87,22 @@ class ViewController: UITableViewController {
         let nav = UINavigationController(rootViewController: vc)
         present(nav, animated: true)
     }
+    
+    private func dismissEditingView() {
+        dismiss(animated: true) {
+            guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+            self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
 }
 
 extension ViewController: AddFormatViewControllerDelegate {
     func addFormatViewController(_ controller: AddFormatViewController, didFinishEditingFormat format: URLFormat) {
-        dismiss(animated: true)
+        dismissEditingView()
     }
     
     func addFormatViewControllerDidClose(_ controller: AddFormatViewController) {
-        dismiss(animated: true)
+        dismissEditingView()
     }
 }
 
@@ -194,7 +201,7 @@ final class AddFormatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Add Format"
+        title = "Edit Format"
         view.backgroundColor = .systemBackground
         
         navigationItem.leftBarButtonItem = cancelNavigationButton
