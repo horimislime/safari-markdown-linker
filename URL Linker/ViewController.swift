@@ -7,30 +7,29 @@
 //
 
 import UIKit
-import WebKit
 
 class TableHeaderView: UITableViewHeaderFooterView {
     let label: UILabel = {
         let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.lineBreakMode = .byTruncatingTail
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.text =
 """
-        You can define format to copy page URL and title.
-        Within URL format, you can put %TITLE and %URL, these value will be replaced to title and URL.
+You can define format to copy page URL and title. Within URL format, you can put %TITLE and %URL, these value will be replaced to title and URL.
 """
         return label
     }()
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(label)
+        addSubview(label)
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
-            label.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])
     }
     
@@ -39,29 +38,55 @@ class TableHeaderView: UITableViewHeaderFooterView {
     }
 }
 
-class ViewController: UITableViewController {
+final class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var setting: Setting!
     private var cells: [UITableViewCell] = []
+    private let headerView = TableHeaderView()
+    private let tableView: UITableView = {
+        let view = UITableView(frame: .zero, style: .insetGrouped)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "URL Linker"
-        let header = TableHeaderView()
-        tableView.tableHeaderView = header
-        header.layoutIfNeeded()
-        tableView.tableHeaderView = header
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(handleAddButton))
-        
+        view.addSubview(tableView)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
+                                                            target: self, action: #selector(handleAddButton))
+        configureTableView()
         reloadCells()
         tableView.reloadData()
     }
     
+    private func configureTableView() {
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.tableHeaderView = headerView
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: tableView.topAnchor),
+            headerView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
+            headerView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
+        ])
+        headerView.layoutIfNeeded()
+        tableView.tableHeaderView = headerView
+    }
+
     private func reloadCells() {
         setting = Setting.load() ?? Setting.default
         cells = setting.urlFormats.map {
             let cell = UITableViewCell()
             cell.textLabel?.text = $0.name
+            cell.accessoryType = .disclosureIndicator
             return cell
         }
     }
@@ -70,14 +95,14 @@ class ViewController: UITableViewController {
         presentEditingView()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cells.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cells[indexPath.row]
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presentEditingView(for: setting.urlFormats[indexPath.row])
     }
     
