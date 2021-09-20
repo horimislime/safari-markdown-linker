@@ -142,6 +142,8 @@ final class TextFieldCell: UITableViewCell {
     let textField: UITextField = {
         let field = UITextField(frame: .zero)
         field.translatesAutoresizingMaskIntoConstraints = false
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
         return field
     }()
     
@@ -194,11 +196,13 @@ final class AddFormatViewController: UIViewController {
     private let formatNameCell: TextFieldCell = {
         let cell = TextFieldCell()
         cell.titleLabel.text = "Name"
+        cell.textField.placeholder = "Format Name"
         return cell
     }()
     private let formatPatternCell: TextFieldCell = {
         let cell = TextFieldCell()
         cell.titleLabel.text = "Format"
+        cell.textField.placeholder = "[%TITLE](%URL)"
         return cell
     }()
     
