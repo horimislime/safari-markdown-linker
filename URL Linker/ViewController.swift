@@ -46,6 +46,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private let tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.allowsMultipleSelectionDuringEditing = false
         return view
     }()
 
@@ -104,6 +105,10 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presentEditingView(for: setting.urlFormats[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
     }
     
     private func presentEditingView(for format: URLFormat? = nil) {
