@@ -14,9 +14,6 @@
 		131C31E426DE78A7000F03EA /* icon-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 131C31E126DE78A7000F03EA /* icon-256.png */; };
 		131C31E526DE78A7000F03EA /* icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 131C31E226DE78A7000F03EA /* icon-128.png */; };
 		135D621926E7B39B005B7527 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D621826E7B39B005B7527 /* AppDelegate.swift */; };
-		135D621D26E7B39B005B7527 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 135D621B26E7B39B005B7527 /* Main.html */; };
-		135D621F26E7B39B005B7527 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 135D621E26E7B39B005B7527 /* Icon.png */; };
-		135D622126E7B39B005B7527 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 135D622026E7B39B005B7527 /* Style.css */; };
 		135D622326E7B39B005B7527 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D622226E7B39B005B7527 /* SceneDelegate.swift */; };
 		135D622826E7B39B005B7527 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 135D622626E7B39B005B7527 /* LaunchScreen.storyboard */; };
 		135D623326E7B39C005B7527 /* URL Linker Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 135D623226E7B39C005B7527 /* URL Linker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -99,9 +96,6 @@
 		131C31E226DE78A7000F03EA /* icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-128.png"; sourceTree = "<group>"; };
 		135D621626E7B39B005B7527 /* URL Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URL Linker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		135D621826E7B39B005B7527 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		135D621C26E7B39B005B7527 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
-		135D621E26E7B39B005B7527 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		135D622026E7B39B005B7527 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		135D622226E7B39B005B7527 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		135D622426E7B39B005B7527 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		135D622726E7B39B005B7527 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -238,19 +232,8 @@
 				135D622626E7B39B005B7527 /* LaunchScreen.storyboard */,
 				135D622C26E7B39C005B7527 /* Assets.xcassets */,
 				135D622D26E7B39C005B7527 /* Info.plist */,
-				135D621A26E7B39B005B7527 /* Resources */,
 			);
 			path = "URL Linker";
-			sourceTree = "<group>";
-		};
-		135D621A26E7B39B005B7527 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				135D621B26E7B39B005B7527 /* Main.html */,
-				135D621E26E7B39B005B7527 /* Icon.png */,
-				135D622026E7B39B005B7527 /* Style.css */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		135D623626E7B39C005B7527 /* URL Linker Extension */ = {
@@ -482,11 +465,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				135D621F26E7B39B005B7527 /* Icon.png in Resources */,
 				135D622826E7B39B005B7527 /* LaunchScreen.storyboard in Resources */,
-				135D621D26E7B39B005B7527 /* Main.html in Resources */,
 				135D624B26E7B39C005B7527 /* Assets.xcassets in Resources */,
-				135D622126E7B39B005B7527 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,14 +569,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		135D621B26E7B39B005B7527 /* Main.html */ = {
-			isa = PBXVariantGroup;
-			children = (
-				135D621C26E7B39B005B7527 /* Base */,
-			);
-			name = Main.html;
-			sourceTree = "<group>";
-		};
 		135D622626E7B39B005B7527 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
