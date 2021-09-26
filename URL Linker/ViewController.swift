@@ -56,6 +56,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.addSubview(tableView)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                                             target: self, action: #selector(handleAddButton))
+        loadSetting()
         configureTableView()
         reloadCells()
         tableView.reloadData()
@@ -81,9 +82,18 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         headerView.layoutIfNeeded()
         tableView.tableHeaderView = headerView
     }
+    
+    private func loadSetting() {
+        if let savedSetting = Setting.load() {
+            setting = savedSetting
+        } else {
+            let defaultSetting = Setting.default
+            setting = defaultSetting
+            setting.save()
+        }
+    }
 
     private func reloadCells() {
-        setting = Setting.load() ?? Setting.default
         cells = setting.urlFormats.map {
             let cell = UITableViewCell()
             cell.textLabel?.text = $0.name
@@ -109,6 +119,22 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, complete in
+            self.setting.removeFormat(atIndex: indexPath.row)
+            self.setting.save()
+            self.reloadCells()
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            complete(true)
+        }
+        
+        deleteAction.backgroundColor = .red
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
     }
     
     private func presentEditingView(for format: URLFormat? = nil) {
