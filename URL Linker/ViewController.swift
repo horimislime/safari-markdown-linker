@@ -153,7 +153,19 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 
 extension ViewController: AddFormatViewControllerDelegate {
-    func addFormatViewController(_ controller: AddFormatViewController, didFinishEditingFormat format: URLFormat) {
+    func addFormatViewController(_ controller: AddFormatViewController, didCreateFormat format: URLFormat) {
+        setting.addFormat(format)
+        setting.save()
+        reloadCells()
+        tableView.reloadData()
+        dismissEditingView()
+    }
+    
+    func addFormatViewController(_ controller: AddFormatViewController, didEditFormat format: URLFormat) {
+        setting.updateFormat(format)
+        setting.save()
+        reloadCells()
+        tableView.reloadData()
         dismissEditingView()
     }
     
@@ -209,7 +221,8 @@ final class TextFieldCell: UITableViewCell {
 }
 
 protocol AddFormatViewControllerDelegate: NSObject {
-    func addFormatViewController(_ controller: AddFormatViewController, didFinishEditingFormat setting: URLFormat)
+    func addFormatViewController(_ controller: AddFormatViewController, didCreateFormat setting: URLFormat)
+    func addFormatViewController(_ controller: AddFormatViewController, didEditFormat setting: URLFormat)
     func addFormatViewControllerDidClose(_ controller: AddFormatViewController)
 }
 
@@ -301,7 +314,11 @@ final class AddFormatViewController: UIViewController {
     @objc private func handleDoneButton() {
         guard let name = formatNameCell.textField.text, let pattern = formatPatternCell.textField.text else { preconditionFailure() }
         let format = URLFormat(name: name, pattern: pattern, isEnabled: true, commandName: "")
-        delegate?.addFormatViewController(self, didFinishEditingFormat: format)
+        if initialFormat == nil {
+            delegate?.addFormatViewController(self, didCreateFormat: format)
+        } else {
+            delegate?.addFormatViewController(self, didEditFormat: format)
+        }
     }
 }
 

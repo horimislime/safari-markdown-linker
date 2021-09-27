@@ -41,6 +41,20 @@ struct Setting: Codable {
         updatedFormats.append(URLFormat(name: name, pattern: pattern, isEnabled: isEnabled, commandName: "Command\(updatedFormats.count + 1)"))
         urlFormats = updatedFormats
     }
+    
+    mutating func addFormat(_ format: URLFormat) {
+        addFormat(name: format.name, pattern: format.pattern, isEnabled: format.isEnabled)
+    }
+    
+    mutating func updateFormat(_ format: URLFormat) {
+        guard let index = urlFormats.firstIndex(where: { $0.commandName == format.commandName }) else { return }
+        urlFormats[index] = format
+    }
+    
+    mutating func removeFormat(atIndex index: Int) {
+        guard index >= 0 && index < urlFormats.count else { return }
+        urlFormats.remove(at: index)
+    }
 }
 
 struct URLFormat: Codable {
