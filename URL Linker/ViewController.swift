@@ -239,12 +239,14 @@ final class AddFormatViewController: UIViewController {
     
     private let formatNameCell: TextFieldCell = {
         let cell = TextFieldCell()
+        cell.selectionStyle = .none
         cell.titleLabel.text = "Name"
         cell.textField.placeholder = "Format Name"
         return cell
     }()
     private let formatPatternCell: TextFieldCell = {
         let cell = TextFieldCell()
+        cell.selectionStyle = .none
         cell.titleLabel.text = "Format"
         cell.textField.placeholder = "[%TITLE](%URL)"
         return cell
