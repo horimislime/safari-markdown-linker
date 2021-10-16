@@ -276,7 +276,7 @@ final class AddFormatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Edit Format"
+        title = initialFormat == nil ? "Add Format" : "Edit Format"
         view.backgroundColor = .systemBackground
         
         navigationItem.leftBarButtonItem = cancelNavigationButton
