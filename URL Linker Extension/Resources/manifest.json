@@ -20,8 +20,8 @@
     },
 
     "content_scripts": [{
-        "js": [ "content.js" ],
-        "matches": [ "*://example.com/*" ]
+        "js": ["content.js"],
+        "matches": ["*://*/*"]
     }],
 
     "browser_action": {
