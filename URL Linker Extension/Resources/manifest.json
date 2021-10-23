@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "default_locale": "en",
 
-    "name": "__MSG_extension_name__",
+    "name": "URL Linker",
     "description": "__MSG_extension_description__",
     "version": "1.0",
 
@@ -34,5 +34,5 @@
         }
     },
 
-    "permissions": [ ]
+    "permissions": ["nativeMessaging"]
 }

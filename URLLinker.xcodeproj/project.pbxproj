@@ -29,6 +29,7 @@
 		135D624B26E7B39C005B7527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 135D622C26E7B39C005B7527 /* Assets.xcassets */; };
 		137AFE7326E8F1C800D092D8 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 137AFE7226E8F1C800D092D8 /* background.js */; };
 		137AFE7526E8F81800D092D8 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137AFE7426E8F81800D092D8 /* SafariWebExtensionHandler.swift */; };
+		138FC81B272450A600371EE0 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAEDBA269E6BFB0074658E /* Setting.swift */; };
 		13955DB01F65710D007A11C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DAF1F65710D007A11C0 /* AppDelegate.swift */; };
 		13955DB21F65710D007A11C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13955DB11F65710D007A11C0 /* ViewController.swift */; };
 		13955DB41F65710D007A11C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13955DB31F65710D007A11C0 /* Assets.xcassets */; };
@@ -528,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				138FC81B272450A600371EE0 /* Setting.swift in Sources */,
 				135D623826E7B39C005B7527 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
