@@ -12,14 +12,15 @@ browser.runtime.sendNativeMessage({ request: "getFormats" }).then((response) => 
     }
 });
 
-const onClick = (event) => {
+async function onClick(event) {
     const element = event.srcElement;
     console.log("Clicked!", element);
+    const tab = await browser.tabs.getCurrent();
     const selectedText = window.getSelection().toString();
-    const title = selectedText.length === 0 ? document.title : selectedText;
+    const title = selectedText.length === 0 ? tab.title : selectedText;
     const payload = {
         title: title,
-        link: location.href,
+        link: tab.url,
         command: element.id
     }
     browser.runtime.sendNativeMessage({request: "copy", payload: payload}).then((response) => {
