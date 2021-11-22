@@ -1,6 +1,4 @@
 browser.runtime.sendNativeMessage({ request: "getFormats" }).then((response) => {
-    console.log("success");
-    console.log("Received response: ", response);
     const container = document.getElementById("container");
     for (const format of response) {
         const button = document.createElement("button");
@@ -14,7 +12,6 @@ browser.runtime.sendNativeMessage({ request: "getFormats" }).then((response) => 
 
 async function onClick(event) {
     const element = event.srcElement;
-    console.log("Clicked!", element);
     const tab = await browser.tabs.getCurrent();
     const selectedText = window.getSelection().toString();
     const title = selectedText.length === 0 ? tab.title : selectedText;
