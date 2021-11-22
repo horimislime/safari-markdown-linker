@@ -40,6 +40,7 @@ You can define format to copy page URL and title. Within URL format, you can put
 
 final class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private let userDefaults = UserDefaults(suiteName: "group.me.horimisli.URLLinker")!
     private var setting: Setting!
     private var cells: [UITableViewCell] = []
     private let headerView = TableHeaderView()
@@ -84,12 +85,12 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func loadSetting() {
-        if let savedSetting = Setting.load() {
+        if let savedSetting = Setting.load(from: userDefaults) {
             setting = savedSetting
         } else {
             let defaultSetting = Setting.default
             setting = defaultSetting
-            setting.save()
+            setting.save(to: userDefaults)
         }
     }
 
@@ -124,7 +125,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, complete in
             self.setting.removeFormat(atIndex: indexPath.row)
-            self.setting.save()
+            self.setting.save(to: self.userDefaults)
             self.reloadCells()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             complete(true)
@@ -155,7 +156,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
 extension ViewController: AddFormatViewControllerDelegate {
     func addFormatViewController(_ controller: AddFormatViewController, didCreateFormat format: URLFormat) {
         setting.addFormat(format)
-        setting.save()
+        setting.save(to: userDefaults)
         reloadCells()
         tableView.reloadData()
         dismissEditingView()
@@ -163,7 +164,7 @@ extension ViewController: AddFormatViewControllerDelegate {
     
     func addFormatViewController(_ controller: AddFormatViewController, didEditFormat format: URLFormat) {
         setting.updateFormat(format)
-        setting.save()
+        setting.save(to: userDefaults)
         reloadCells()
         tableView.reloadData()
         dismissEditingView()

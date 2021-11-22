@@ -10,6 +10,8 @@ import SafariServices
 import os.log
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
+    
+    private let userDefaults = UserDefaults(suiteName: "group.me.horimisli.URLLinker")!
 
     func beginRequest(with context: NSExtensionContext) {
         let item = context.inputItems[0] as! NSExtensionItem
@@ -19,7 +21,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         }
         os_log(.default, "Received message from browser.runtime.sendNativeMessage: %@", message as CVarArg)
         
-        let setting = Setting.load() ?? Setting.default
+        let setting = Setting.load(from: userDefaults) ?? Setting.default
         let response = NSExtensionItem()
         if message["request"] as! String == "getFormats" {
             let formats = setting.urlFormats.map { ["name": $0.name, "command": $0.commandName] }

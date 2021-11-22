@@ -108,6 +108,9 @@ enum ExtensionStatus {
 
 final class ViewController: NSViewController {
     
+    // TODO: Replace this team ID prefix with yours!
+    private let userDefaults = UserDefaults(suiteName: "3XEXW5K93E.url-linker")!
+    
     @IBOutlet private weak var statusIconImageView: NSImageView!
     @IBOutlet private weak var extensionStatusText: NSTextField!
     @IBOutlet private weak var urlFormatListTableView: NSTableView!
@@ -159,11 +162,11 @@ final class ViewController: NSViewController {
                                                           name: NSWorkspace.didActivateApplicationNotification,
                                                           object: nil)
         
-        if let setting = Setting.load() {
+        if let setting = Setting.load(from: userDefaults) {
             self.setting = setting
         } else {
             setting = Setting.default
-            setting.save()
+            setting.save(to: userDefaults)
         }
         urlFormatListTableView.reloadData()
         segmentedControl.target = self
@@ -196,7 +199,7 @@ final class ViewController: NSViewController {
         default:
             preconditionFailure()
         }
-        setting.save()
+        setting.save(to: userDefaults)
         urlFormatListTableView.reloadData()
         updateSegmentedControlState()
     }
@@ -268,7 +271,7 @@ extension ViewController: NSTextFieldDelegate {
             preconditionFailure()
         }
 
-        setting.save()
+        setting.save(to: userDefaults)
         return true
     }
 }
@@ -284,6 +287,6 @@ extension ViewController: CheckBoxCellViewDelegate {
             pattern: editedFormat.pattern,
             isEnabled: status,
             commandName: editedFormat.commandName)
-        setting.save()
+        setting.save(to: userDefaults)
     }
 }

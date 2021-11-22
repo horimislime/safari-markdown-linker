@@ -13,6 +13,8 @@ import os.log
 private var lastLinkDetail: [String: Any]?
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
+    // TODO: Replace this team ID prefix with yours!
+    private let userDefaults = UserDefaults(suiteName: "3XEXW5K93E.url-linker")!
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
         lastLinkDetail = userInfo
@@ -49,7 +51,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
     
     private func getAssociatedFormat(withCommand command: String) -> URLFormat? {
-        let setting = Setting.load() ?? Setting.default
+        let setting = Setting.load(from: userDefaults) ?? Setting.default
         return setting.urlFormats.first { f in f.commandName == command }
     }
 }

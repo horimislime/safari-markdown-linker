@@ -8,9 +8,6 @@
 
 import Foundation
 
-// TODO: Replace this team ID prefix with yours!
-private let appGroupName = "3XEXW5K93E.url-linker"
-
 struct Setting: Codable {
     var urlFormats: [URLFormat]
     
@@ -18,8 +15,7 @@ struct Setting: Codable {
         URLFormat(name: "Copy as Markdown Format", pattern: "[%TITLE](%URL)", isEnabled: true, commandName: "Command1")
     ])
     
-    static func load() -> Self? {
-        guard let defaults = UserDefaults(suiteName: appGroupName) else { preconditionFailure() }
+    static func load(from defaults: UserDefaults) -> Self? {
         if let data = defaults.value(forKey: "Setting") as? Data,
            let setting = try? PropertyListDecoder().decode(Setting.self, from: data) {
             return setting
@@ -27,10 +23,9 @@ struct Setting: Codable {
         return nil
     }
     
-    func save() {
-        let defaults = UserDefaults(suiteName: appGroupName)
-        defaults?.setValue(try? PropertyListEncoder().encode(self), forKey: "Setting")
-        defaults?.synchronize()
+    func save(to defaults: UserDefaults) {
+        defaults.setValue(try? PropertyListEncoder().encode(self), forKey: "Setting")
+        defaults.synchronize()
     }
     
     mutating func addFormat(name: String, pattern: String, isEnabled: Bool = true) {
