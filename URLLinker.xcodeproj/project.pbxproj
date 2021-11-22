@@ -130,6 +130,8 @@
 		13955DD01F65715A007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13AAEDBA269E6BFB0074658E /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		13C08C8726EA3754003FBC08 /* popup.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		13C7318E274BE733001A44BA /* URL Linker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "URL Linker.entitlements"; sourceTree = "<group>"; };
+		13C7318F274BE78D001A44BA /* URL Linker Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "URL Linker Extension.entitlements"; sourceTree = "<group>"; };
 		13FF6AB11F78C70B00CA4CAA /* macOS (App).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS (App).entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 		135D621726E7B39B005B7527 /* URL Linker */ = {
 			isa = PBXGroup;
 			children = (
+				13C7318E274BE733001A44BA /* URL Linker.entitlements */,
 				135D621826E7B39B005B7527 /* AppDelegate.swift */,
 				135D622226E7B39B005B7527 /* SceneDelegate.swift */,
 				135D622426E7B39B005B7527 /* ViewController.swift */,
@@ -240,6 +243,7 @@
 		135D623626E7B39C005B7527 /* URL Linker Extension */ = {
 			isa = PBXGroup;
 			children = (
+				13C7318F274BE78D001A44BA /* URL Linker Extension.entitlements */,
 				135D623726E7B39C005B7527 /* SafariWebExtensionHandler.swift */,
 				135D624A26E7B39C005B7527 /* Info.plist */,
 				135D623926E7B39C005B7527 /* Resources */,
@@ -604,6 +608,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "URL Linker Extension/URL Linker Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
@@ -633,6 +638,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "URL Linker Extension/URL Linker Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
@@ -665,6 +671,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "URL Linker/URL Linker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
@@ -706,6 +714,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "URL Linker/URL Linker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
