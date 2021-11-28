@@ -9,13 +9,14 @@
 import SafariServices
 import os.log
 
-class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
+final class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     private let userDefaults = UserDefaults(suiteName: "group.me.horimisli.URLLinker")!
 
     func beginRequest(with context: NSExtensionContext) {
         let item = context.inputItems[0] as! NSExtensionItem
-        guard let message = item.userInfo?[SFExtensionMessageKey] as? [String: AnyObject] else {
+        guard let message = item.userInfo?[SFExtensionMessageKey] as? [String: AnyObject],
+        let requestType = message["request"] as? String else {
             os_log(.default, "Invalid native request payload")
             return
         }
@@ -23,10 +24,12 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         
         let setting = Setting.load(from: userDefaults) ?? Setting.default
         let response = NSExtensionItem()
-        if message["request"] as! String == "getFormats" {
+
+        switch requestType {
+        case "getFormats":
             let formats = setting.urlFormats.map { ["name": $0.name, "command": $0.commandName] }
             response.userInfo = [SFExtensionMessageKey: formats]
-        } else if message["request"] as! String == "copy" {
+        case "copy":
             let payload = message["payload"] as! [String: String]
             let title = payload["title"]!
             let link = payload["link"]!
@@ -36,13 +39,9 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 .replacingOccurrences(of: "%URL", with: link)
                 .replacingOccurrences(of: "%TITLE", with: title)
             UIPasteboard.general.string = formattedString
-        } else {
-            
+        default:
+            preconditionFailure("Request \(requestType) is not supported.")
         }
-        
-        os_log(.default, "sendNativeMessage: Load setting")
-        
-        
 
         context.completeRequest(returningItems: [response], completionHandler: nil)
     }

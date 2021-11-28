@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableHeaderView: UITableViewHeaderFooterView {
+final class TableHeaderView: UITableViewHeaderFooterView {
     let label: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
