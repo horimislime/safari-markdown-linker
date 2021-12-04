@@ -15,10 +15,6 @@ final class TableHeaderView: UITableViewHeaderFooterView {
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        label.text =
-"""
-You can define format to copy page URL and title. Within URL format, you can put %TITLE and %URL, these value will be replaced to title and URL.
-"""
         return label
     }()
     
@@ -43,7 +39,11 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private let userDefaults = UserDefaults(suiteName: "group.me.horimisli.URLLinker")!
     private var setting: Setting!
     private var cells: [UITableViewCell] = []
-    private let headerView = TableHeaderView()
+    private let headerView: TableHeaderView = {
+        let view = TableHeaderView()
+        view.label.text = "You can define format to copy page URL and title."
+        return view
+    }()
     private let tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -238,6 +238,15 @@ final class AddFormatViewController: UIViewController {
         return view
     }()
     
+    private let headerView: TableHeaderView = {
+        let view = TableHeaderView()
+        view.label.text = """
+You can use %TITLE and %URL variables, these value will be replaced to web page's title and URL.
+i.e., Markdown style format can be described as `[%TITLE](%URL)`
+"""
+        return view
+    }()
+    
     private let formatNameCell: TextFieldCell = {
         let cell = TextFieldCell()
         cell.selectionStyle = .none
@@ -300,6 +309,16 @@ final class AddFormatViewController: UIViewController {
         
         formatNameCell.textField.delegate = self
         formatPatternCell.textField.delegate = self
+        
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.tableHeaderView = headerView
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: tableView.topAnchor),
+            headerView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
+            headerView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
+        ])
+        headerView.layoutIfNeeded()
+        tableView.tableHeaderView = headerView
         
         guard let format = initialFormat else { return }
         formatNameCell.textField.text = format.name
