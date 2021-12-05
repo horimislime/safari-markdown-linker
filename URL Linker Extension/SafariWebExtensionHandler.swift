@@ -11,7 +11,7 @@ import os.log
 
 final class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
-    private let userDefaults = UserDefaults(suiteName: "group.me.horimisli.URLLinker")!
+    private let userDefaults = UserDefaults(suiteName: "group.\(Bundle.main.bundleIdentifier!)")!
 
     func beginRequest(with context: NSExtensionContext) {
         let item = context.inputItems[0] as! NSExtensionItem

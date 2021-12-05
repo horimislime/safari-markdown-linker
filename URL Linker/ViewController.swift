@@ -36,7 +36,7 @@ final class TableHeaderView: UITableViewHeaderFooterView {
 
 final class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let userDefaults = UserDefaults(suiteName: "group.me.horimisli.URLLinker")!
+    private let userDefaults = UserDefaults(suiteName: "group.\(Bundle.main.bundleIdentifier!)")!
     private var setting: Setting!
     private var cells: [UITableViewCell] = []
     private let headerView: TableHeaderView = {
