@@ -130,8 +130,8 @@
 		13955DD01F65715A007A11C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13AAEDBA269E6BFB0074658E /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		13C08C8726EA3754003FBC08 /* popup.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
-		13C7318E274BE733001A44BA /* URL Linker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "URL Linker.entitlements"; sourceTree = "<group>"; };
-		13C7318F274BE78D001A44BA /* URL Linker Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "URL Linker Extension.entitlements"; sourceTree = "<group>"; };
+		13C7318E274BE733001A44BA /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		13C7318F274BE78D001A44BA /* AppExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppExtension.entitlements; sourceTree = "<group>"; };
 		13FF6AB11F78C70B00CA4CAA /* macOS (App).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS (App).entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,10 +226,10 @@
 			path = en;
 			sourceTree = "<group>";
 		};
-		135D621726E7B39B005B7527 /* URL Linker */ = {
+		135D621726E7B39B005B7527 /* iOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				13C7318E274BE733001A44BA /* URL Linker.entitlements */,
+				13C7318E274BE733001A44BA /* App.entitlements */,
 				135D621826E7B39B005B7527 /* AppDelegate.swift */,
 				135D622226E7B39B005B7527 /* SceneDelegate.swift */,
 				135D622426E7B39B005B7527 /* ViewController.swift */,
@@ -237,18 +237,18 @@
 				135D622C26E7B39C005B7527 /* Assets.xcassets */,
 				135D622D26E7B39C005B7527 /* Info.plist */,
 			);
-			path = "URL Linker";
+			path = "iOS (App)";
 			sourceTree = "<group>";
 		};
-		135D623626E7B39C005B7527 /* URL Linker Extension */ = {
+		135D623626E7B39C005B7527 /* iOS (Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				13C7318F274BE78D001A44BA /* URL Linker Extension.entitlements */,
+				13C7318F274BE78D001A44BA /* AppExtension.entitlements */,
 				135D623726E7B39C005B7527 /* SafariWebExtensionHandler.swift */,
 				135D624A26E7B39C005B7527 /* Info.plist */,
 				135D623926E7B39C005B7527 /* Resources */,
 			);
-			path = "URL Linker Extension";
+			path = "iOS (Extension)";
 			sourceTree = "<group>";
 		};
 		135D623926E7B39C005B7527 /* Resources */ = {
@@ -275,8 +275,8 @@
 				13955DC61F65715A007A11C0 /* Shared (Extension) */,
 				130EFB3526DD2786000D929F /* macOS (App) */,
 				130EFB3626DD2791000D929F /* macOS (Extension) */,
-				135D621726E7B39B005B7527 /* URL Linker */,
-				135D623626E7B39C005B7527 /* URL Linker Extension */,
+				135D621726E7B39B005B7527 /* iOS (App) */,
+				135D623626E7B39C005B7527 /* iOS (Extension) */,
 				13955DC31F65715A007A11C0 /* Frameworks */,
 				13955DAD1F65710D007A11C0 /* Products */,
 			);
@@ -608,13 +608,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "URL Linker Extension/URL Linker Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS (Extension)/AppExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "URL Linker Extension/Info.plist";
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "URL Linker Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 horimislime. All rights reserved.";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -638,13 +638,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "URL Linker Extension/URL Linker Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS (Extension)/AppExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "URL Linker Extension/Info.plist";
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "URL Linker Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 horimislime. All rights reserved.";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -671,14 +671,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "URL Linker/URL Linker.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS (App)/App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "URL Linker/Info.plist";
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "URL Linker";
 				INFOPLIST_KEY_CFBundleExecutable = "URL Linker";
 				INFOPLIST_KEY_CFBundleName = "URL Linker";
@@ -714,14 +714,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "URL Linker/URL Linker.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS (App)/App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XEXW5K93E;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "URL Linker/Info.plist";
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "URL Linker";
 				INFOPLIST_KEY_CFBundleExecutable = "URL Linker";
 				INFOPLIST_KEY_CFBundleName = "URL Linker";
