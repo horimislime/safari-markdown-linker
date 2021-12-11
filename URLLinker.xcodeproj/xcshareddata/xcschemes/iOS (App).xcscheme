@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "135D621526E7B39B005B7527"
                BuildableName = "URL Linker.app"
-               BlueprintName = "URL Linker"
+               BlueprintName = "iOS (App)"
                ReferencedContainer = "container:URLLinker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +46,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "135D621526E7B39B005B7527"
             BuildableName = "URL Linker.app"
-            BlueprintName = "URL Linker"
+            BlueprintName = "iOS (App)"
             ReferencedContainer = "container:URLLinker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

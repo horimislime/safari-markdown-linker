@@ -16,7 +16,7 @@
 		135D621926E7B39B005B7527 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D621826E7B39B005B7527 /* AppDelegate.swift */; };
 		135D622326E7B39B005B7527 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D622226E7B39B005B7527 /* SceneDelegate.swift */; };
 		135D622826E7B39B005B7527 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 135D622626E7B39B005B7527 /* LaunchScreen.storyboard */; };
-		135D623326E7B39C005B7527 /* URL Linker Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 135D623226E7B39C005B7527 /* URL Linker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		135D623326E7B39C005B7527 /* iOS (Extension).appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 135D623226E7B39C005B7527 /* iOS (Extension).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		135D623826E7B39C005B7527 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135D623726E7B39C005B7527 /* SafariWebExtensionHandler.swift */; };
 		135D623B26E7B39C005B7527 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 135D623A26E7B39C005B7527 /* _locales */; };
 		135D623D26E7B39C005B7527 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 135D623C26E7B39C005B7527 /* images */; };
@@ -70,7 +70,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				135D623326E7B39C005B7527 /* URL Linker Extension.appex in Embed App Extensions */,
+				135D623326E7B39C005B7527 /* iOS (Extension).appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,14 +95,14 @@
 		131C31E026DE78A7000F03EA /* icon-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-512.png"; sourceTree = "<group>"; };
 		131C31E126DE78A7000F03EA /* icon-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-256.png"; sourceTree = "<group>"; };
 		131C31E226DE78A7000F03EA /* icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-128.png"; sourceTree = "<group>"; };
-		135D621626E7B39B005B7527 /* URL Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URL Linker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		135D621626E7B39B005B7527 /* iOS (App).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS (App).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		135D621826E7B39B005B7527 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		135D622226E7B39B005B7527 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		135D622426E7B39B005B7527 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		135D622726E7B39B005B7527 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		135D622C26E7B39C005B7527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		135D622D26E7B39C005B7527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		135D623226E7B39C005B7527 /* URL Linker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "URL Linker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		135D623226E7B39C005B7527 /* iOS (Extension).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "iOS (Extension).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		135D623726E7B39C005B7527 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		135D623A26E7B39C005B7527 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		135D623C26E7B39C005B7527 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
@@ -287,8 +287,8 @@
 			children = (
 				13955DAC1F65710D007A11C0 /* URL Linker.app */,
 				13955DC21F65715A007A11C0 /* macOS (Extension).appex */,
-				135D621626E7B39B005B7527 /* URL Linker.app */,
-				135D623226E7B39C005B7527 /* URL Linker Extension.appex */,
+				135D621626E7B39B005B7527 /* iOS (App).app */,
+				135D623226E7B39C005B7527 /* iOS (Extension).appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,9 +333,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		135D621526E7B39B005B7527 /* URL Linker */ = {
+		135D621526E7B39B005B7527 /* iOS (App) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 135D625026E7B39C005B7527 /* Build configuration list for PBXNativeTarget "URL Linker" */;
+			buildConfigurationList = 135D625026E7B39C005B7527 /* Build configuration list for PBXNativeTarget "iOS (App)" */;
 			buildPhases = (
 				135D621226E7B39B005B7527 /* Sources */,
 				135D621326E7B39B005B7527 /* Frameworks */,
@@ -347,14 +347,14 @@
 			dependencies = (
 				135D623526E7B39C005B7527 /* PBXTargetDependency */,
 			);
-			name = "URL Linker";
+			name = "iOS (App)";
 			productName = "URL Linker";
-			productReference = 135D621626E7B39B005B7527 /* URL Linker.app */;
+			productReference = 135D621626E7B39B005B7527 /* iOS (App).app */;
 			productType = "com.apple.product-type.application";
 		};
-		135D623126E7B39C005B7527 /* URL Linker Extension */ = {
+		135D623126E7B39C005B7527 /* iOS (Extension) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 135D624C26E7B39C005B7527 /* Build configuration list for PBXNativeTarget "URL Linker Extension" */;
+			buildConfigurationList = 135D624C26E7B39C005B7527 /* Build configuration list for PBXNativeTarget "iOS (Extension)" */;
 			buildPhases = (
 				135D622E26E7B39C005B7527 /* Sources */,
 				135D622F26E7B39C005B7527 /* Frameworks */,
@@ -364,9 +364,9 @@
 			);
 			dependencies = (
 			);
-			name = "URL Linker Extension";
+			name = "iOS (Extension)";
 			productName = "URL Linker Extension";
-			productReference = 135D623226E7B39C005B7527 /* URL Linker Extension.appex */;
+			productReference = 135D623226E7B39C005B7527 /* iOS (Extension).appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		13955DAB1F65710D007A11C0 /* macOS (App) */ = {
@@ -459,8 +459,8 @@
 			targets = (
 				13955DAB1F65710D007A11C0 /* macOS (App) */,
 				13955DC11F65715A007A11C0 /* macOS (Extension) */,
-				135D621526E7B39B005B7527 /* URL Linker */,
-				135D623126E7B39C005B7527 /* URL Linker Extension */,
+				135D621526E7B39B005B7527 /* iOS (App) */,
+				135D623126E7B39C005B7527 /* iOS (Extension) */,
 			);
 		};
 /* End PBXProject section */
@@ -564,7 +564,7 @@
 /* Begin PBXTargetDependency section */
 		135D623526E7B39C005B7527 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 135D623126E7B39C005B7527 /* URL Linker Extension */;
+			target = 135D623126E7B39C005B7527 /* iOS (Extension) */;
 			targetProxy = 135D623426E7B39C005B7527 /* PBXContainerItemProxy */;
 		};
 		13955DD61F65715A007A11C0 /* PBXTargetDependency */ = {
@@ -946,7 +946,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		135D624C26E7B39C005B7527 /* Build configuration list for PBXNativeTarget "URL Linker Extension" */ = {
+		135D624C26E7B39C005B7527 /* Build configuration list for PBXNativeTarget "iOS (Extension)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				135D624D26E7B39C005B7527 /* Debug */,
@@ -955,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		135D625026E7B39C005B7527 /* Build configuration list for PBXNativeTarget "URL Linker" */ = {
+		135D625026E7B39C005B7527 /* Build configuration list for PBXNativeTarget "iOS (App)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				135D625126E7B39C005B7527 /* Debug */,
