@@ -66,7 +66,7 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		135D624F26E7B39C005B7527 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
@@ -95,7 +95,7 @@
 		131C31E026DE78A7000F03EA /* icon-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-512.png"; sourceTree = "<group>"; };
 		131C31E126DE78A7000F03EA /* icon-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-256.png"; sourceTree = "<group>"; };
 		131C31E226DE78A7000F03EA /* icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-128.png"; sourceTree = "<group>"; };
-		135D621626E7B39B005B7527 /* iOS (App).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS (App).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		135D621626E7B39B005B7527 /* URL Linker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URL Linker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		135D621826E7B39B005B7527 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		135D622226E7B39B005B7527 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		135D622426E7B39B005B7527 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 			children = (
 				13955DAC1F65710D007A11C0 /* URL Linker.app */,
 				13955DC21F65715A007A11C0 /* macOS (Extension).appex */,
-				135D621626E7B39B005B7527 /* iOS (App).app */,
+				135D621626E7B39B005B7527 /* URL Linker.app */,
 				135D623226E7B39C005B7527 /* iOS (Extension).appex */,
 			);
 			name = Products;
@@ -349,7 +349,7 @@
 			);
 			name = "iOS (App)";
 			productName = "URL Linker";
-			productReference = 135D621626E7B39B005B7527 /* iOS (App).app */;
+			productReference = 135D621626E7B39B005B7527 /* URL Linker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		135D623126E7B39C005B7527 /* iOS (Extension) */ = {
@@ -668,6 +668,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -697,7 +698,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.URLLinker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "URL Linker";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -711,6 +712,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -739,7 +741,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.horimisli.URLLinker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "URL Linker";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
