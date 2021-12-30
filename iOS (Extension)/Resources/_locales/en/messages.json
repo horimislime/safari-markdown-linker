@@ -1,10 +1,10 @@
 {
     "extension_name": {
         "message": "URL Linker Extension",
-        "description": "The display name for the extension."
+        "description": "Easy way to copy website's URL in your favorite format."
     },
     "extension_description": {
-        "message": "This is URL Linker Extension. You should tell us what your extension does here.",
-        "description": "Description of what the extension does."
+        "message": "URL Linker Extension",
+        "description": "Easy way to copy website's URL in your favorite format."
     }
 }
